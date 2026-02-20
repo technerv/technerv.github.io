@@ -1,271 +1,2015 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Evans Githinji | Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-<style>
-*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;}
-body{font-family:'Inter',sans-serif;line-height:1.6;color:#f0f0f0;background:#0a0a23;transition:background 0.3s,color 0.3s;}
-a{text-decoration:none;color:inherit;}
-section{padding:60px 20px;}
-.container{max-width:1100px;margin:0 auto;}
-/* Navbar */
-nav{position:sticky;top:0;background:#111133;padding:10px 20px;display:flex;justify-content:center;gap:10px;z-index:999;box-shadow:0 2px 8px rgba(0,0,0,0.2);}
-nav a{font-weight:600;padding:6px 10px;border-radius:5px;transition:0.3s;color:#f0f0f0;}
-nav a.active,a:hover{background:#00bcd4;color:#111;}
-/* Header */
-header{text-align:center;padding:80px 20px;position:relative;}
-header h1{font-size:2.8rem;margin-bottom:15px;}
-header p{font-size:1.2rem;margin-bottom:25px;color:#ccc;}
-.btn{display:inline-block;background:#00bcd4;color:#111;padding:10px 25px;border-radius:6px;font-weight:600;margin:5px;transition:0.3s;}
-.btn:hover{background:#009bb5;}
-.social-icons a{margin:0 8px;font-size:1.5rem;color:#00bcd4;transition:0.3s;}
-.social-icons a:hover{color:#fff;}
-/* About */
-#about h2,#skills h2,#portfolio h2,#contact h2{text-align:center;font-size:2rem;margin-bottom:15px;}
-#about .bio{max-width:800px;margin:0 auto 20px auto;font-size:1.1rem;color:#ccc;line-height:1.7;}
-/* Skills */
-.skills-grid{max-width:900px;margin:0 auto;}
-.skill{margin-bottom:15px;}
-.skill-label{font-weight:600;margin-bottom:4px;}
-.skill-bar-bg{width:100%;background:#111133;height:16px;border-radius:8px;overflow:hidden;}
-.skill-bar-fill{height:100%;width:0%;background:#00bcd4;border-radius:8px;text-align:right;color:#111;font-weight:600;padding-right:5px;transition:width 2s;}
-.counters{display:flex;justify-content:center;gap:40px;margin:30px 0;text-align:center;}
-.counter{font-size:1.8rem;font-weight:700;color:#00bcd4;}
-.counter-label{font-size:0.95rem;color:#ccc;}
-/* Portfolio */
-.portfolio-filters{text-align:center;margin-bottom:25px;}
-.portfolio-filters button{padding:6px 12px;margin:0 5px;border:none;border-radius:6px;background:#111133;color:#00bcd4;font-weight:600;cursor:pointer;transition:0.3s;}
-.portfolio-filters button.active, .portfolio-filters button:hover{background:#00bcd4;color:#111;}
-.portfolio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
-.project{border-radius:8px;overflow:hidden;box-shadow:0 4px 10px rgba(0,0,0,0.2);transition:0.3s;opacity:1;transform:translateY(0);}
-.project:hover{transform:scale(1.03);}
-.project-info{padding:10px;background:#111133;}
-.project-info h4{font-size:1rem;margin-bottom:5px;color:#fff;}
-.project-info p a{color:#00bcd4;}
-/* Contact */
-#contact form{max-width:500px;margin:0 auto;display:flex;flex-direction:column;gap:10px;}
-#contact input,#contact textarea{padding:10px;border-radius:6px;border:none;font-size:1rem;}
-#contact button{background:#00bcd4;color:#111;border:none;padding:12px;border-radius:6px;font-weight:600;cursor:pointer;transition:0.3s;}
-#contact button:hover{background:#009bb5;}
-/* Footer */
-footer{text-align:center;padding:30px 20px;background:#111133;color:#ccc;}
-footer a{color:#00bcd4;margin:0 8px;transition:0.3s;}
-footer a:hover{color:#fff;}
-/* Theme Toggle */
-.theme-toggle{position:fixed;top:20px;right:20px;background:#00bcd4;color:#111;border:none;padding:10px 15px;border-radius:50px;cursor:pointer;z-index:1000;transition:0.3s;}
-.theme-toggle:hover{background:#009bb5;}
-@media(max-width:768px){header h1{font-size:2rem;} nav{flex-direction:row;gap:5px;}}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Evans Githinji | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;}
+    :root{
+      --bg:#050816;
+      --bg-soft:#0b1020;
+      --bg-elevated:#111827;
+      --bg-card-glass:rgba(15,23,42,0.85);
+      --border-subtle:rgba(148,163,184,0.25);
+      --primary:#22d3ee;
+      --primary-soft:rgba(34,211,238,0.12);
+      --accent:#6366f1;
+      --accent-soft:rgba(99,102,241,0.1);
+      --text:#e5e7eb;
+      --text-soft:#9ca3af;
+      --danger:#f97373;
+      --shadow-soft:0 22px 60px rgba(15,23,42,0.75);
+      --radius-lg:18px;
+      --radius-full:999px;
+      --nav-height:70px;
+    }
+    body.light-theme{
+      --bg:#f5f5f7;
+      --bg-soft:#ffffff;
+      --bg-elevated:#ffffff;
+      --bg-card-glass:rgba(255,255,255,0.9);
+      --border-subtle:rgba(15,23,42,0.06);
+      --text:#020617;
+      --text-soft:#4b5563;
+      --shadow-soft:0 18px 50px rgba(15,23,42,0.10);
+    }
+    body{
+      font-family:'Inter',system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
+      line-height:1.6;
+      color:var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(56,189,248,0.18), transparent 55%),
+        radial-gradient(circle at top right, rgba(129,140,248,0.14), transparent 55%),
+        radial-gradient(circle at bottom, rgba(236,72,153,0.08), transparent 55%),
+        var(--bg);
+      min-height:100vh;
+      transition:background 0.4s ease,color 0.4s ease;
+    }
+    a{text-decoration:none;color:inherit;}
+    img{max-width:100%;display:block;}
+    section{padding:80px 20px;}
+    .container{max-width:1160px;margin:0 auto;}
+
+    /* Global utilities */
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:4px 12px;
+      border-radius:999px;
+      font-size:0.75rem;
+      letter-spacing:0.08em;
+      text-transform:uppercase;
+      font-weight:600;
+      border:1px solid var(--border-subtle);
+      background-color:rgba(15,23,42,0.6);
+      color:var(--primary);
+      backdrop-filter:blur(18px);
+    }
+    body.light-theme .pill{
+      background-color:rgba(255,255,255,0.9);
+    }
+    .pill-dot{
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:radial-gradient(circle at 30% 30%,#e0f2fe,#22d3ee);
+      box-shadow:0 0 8px rgba(56,189,248,0.9);
+    }
+    .section-header{
+      margin-bottom:40px;
+      text-align:left;
+    }
+    .section-kicker{
+      font-size:0.8rem;
+      font-weight:600;
+      letter-spacing:0.14em;
+      text-transform:uppercase;
+      color:var(--primary);
+      margin-bottom:10px;
+    }
+    .section-title{
+      font-size:2rem;
+      letter-spacing:-0.04em;
+      margin-bottom:8px;
+    }
+    .section-subtitle{
+      max-width:520px;
+      font-size:0.96rem;
+      color:var(--text-soft);
+    }
+
+    /* NAVBAR */
+    .nav-shell{
+      position:sticky;
+      top:0;
+      z-index:999;
+      backdrop-filter:blur(22px);
+      background:linear-gradient(to bottom,rgba(15,23,42,0.90),rgba(15,23,42,0.70),transparent);
+      border-bottom:1px solid rgba(148,163,184,0.25);
+    }
+    body.light-theme .nav-shell{
+      background:linear-gradient(to bottom,rgba(255,255,255,0.96),rgba(255,255,255,0.92),transparent);
+      border-bottom:1px solid rgba(148,163,184,0.12);
+    }
+    .nav-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      height:var(--nav-height);
+      gap:20px;
+    }
+    .nav-brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .logo-mark{
+      width:34px;
+      height:34px;
+      border-radius:14px;
+      background:radial-gradient(circle at 20% 20%,#e0f2fe,#22d3ee,#6366f1);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow:0 0 20px rgba(56,189,248,0.8);
+      color:#020617;
+      font-weight:800;
+      font-size:0.98rem;
+    }
+    .brand-text-main{
+      font-size:0.9rem;
+      font-weight:600;
+      letter-spacing:0.08em;
+      text-transform:uppercase;
+    }
+    .brand-text-sub{
+      font-size:0.75rem;
+      color:var(--text-soft);
+    }
+    .nav-links-wrapper{
+      display:flex;
+      align-items:center;
+      gap:22px;
+    }
+    .nav-link{
+      font-size:0.9rem;
+      font-weight:500;
+      color:var(--text-soft);
+      position:relative;
+      padding:4px 0;
+      transition:color 0.25s ease;
+    }
+    .nav-link::after{
+      content:'';
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:-6px;
+      height:2px;
+      border-radius:999px;
+      background:linear-gradient(90deg,var(--primary),var(--accent));
+      transform:scaleX(0);
+      transform-origin:center;
+      transition:transform 0.25s ease;
+    }
+    .nav-link:hover{color:#e5e7eb;}
+    body.light-theme .nav-link:hover{color:#020617;}
+    .nav-link.active{
+      color:#e5e7eb;
+      font-weight:600;
+    }
+    body.light-theme .nav-link.active{color:#020617;}
+    .nav-link.active::after{transform:scaleX(1);}
+    .nav-right{
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
+    .nav-cta{
+      padding:7px 15px;
+      border-radius:999px;
+      border:1px solid rgba(148,163,184,0.35);
+      font-size:0.78rem;
+      font-weight:600;
+      letter-spacing:0.12em;
+      text-transform:uppercase;
+      color:var(--text-soft);
+      background:radial-gradient(circle at 10% 0%,rgba(56,189,248,0.14),transparent 70%);
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+    .nav-cta span.icon-dot{
+      width:6px;
+      height:6px;
+      border-radius:999px;
+      background:#22c55e;
+      box-shadow:0 0 10px rgba(34,197,94,0.9);
+    }
+    .nav-toggle{
+      display:none;
+      width:34px;
+      height:34px;
+      border-radius:999px;
+      border:1px solid rgba(148,163,184,0.45);
+      background:rgba(15,23,42,0.8);
+      color:var(--text);
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+    }
+    body.light-theme .nav-toggle{
+      background:rgba(248,250,252,0.9);
+    }
+
+    /* THEME TOGGLE */
+    .theme-toggle{
+      border:none;
+      width:34px;
+      height:34px;
+      border-radius:999px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      background:radial-gradient(circle at 20% 0%,rgba(250,250,250,0.3),rgba(15,23,42,0.95));
+      color:#fbbf24;
+      box-shadow:0 0 18px rgba(250,204,21,0.4);
+      transition:transform 0.25s ease,box-shadow 0.25s ease,background 0.25s ease;
+    }
+    body.light-theme .theme-toggle{
+      background:radial-gradient(circle at 15% 0%,rgba(15,23,42,0.12),rgba(255,255,255,0.98));
+      color:#0f172a;
+      box-shadow:0 0 14px rgba(148,163,184,0.4);
+    }
+    .theme-toggle:hover{
+      transform:translateY(-1px) scale(1.03);
+      box-shadow:0 0 22px rgba(250,204,21,0.55);
+    }
+
+    /* HERO */
+    .hero{
+      padding:40px 20px 80px;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero::before{
+      content:'';
+      position:absolute;
+      inset:-80px;
+      background:
+        radial-gradient(circle at 0% -10%,rgba(56,189,248,0.24),transparent 55%),
+        radial-gradient(circle at 100% 0%,rgba(129,140,248,0.22),transparent 50%),
+        radial-gradient(circle at 50% 125%,rgba(236,72,153,0.12),transparent 55%);
+      opacity:0.9;
+      pointer-events:none;
+      mix-blend-mode:screen;
+    }
+    body.light-theme .hero::before{
+      mix-blend-mode:normal;
+      opacity:0.65;
+    }
+    .hero-inner{
+      position:relative;
+      z-index:1;
+      display:grid;
+      grid-template-columns:minmax(0,1.4fr) minmax(0,1.1fr);
+      gap:40px;
+      align-items:center;
+    }
+    .hero-intro{
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+    }
+    .hero-eyebrow{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .hero-subpill{
+      padding:3px 10px;
+      border-radius:999px;
+      border:1px solid rgba(148,163,184,0.35);
+      font-size:0.72rem;
+      color:var(--text-soft);
+      background:rgba(15,23,42,0.75);
+    }
+    body.light-theme .hero-subpill{
+      background:rgba(255,255,255,0.9);
+    }
+    .hero-heading{
+      font-size:2.7rem;
+      letter-spacing:-0.07em;
+      line-height:1.1;
+    }
+    .hero-heading span.highlight{
+      background:linear-gradient(120deg,#38bdf8,#22d3ee,#a855f7);
+      -webkit-background-clip:text;
+      color:transparent;
+    }
+    .hero-tagline{
+      font-size:1rem;
+      color:var(--text-soft);
+      max-width:540px;
+    }
+    .hero-meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:4px;
+    }
+    .hero-meta-pill{
+      padding:4px 12px;
+      border-radius:999px;
+      font-size:0.8rem;
+      border:1px solid rgba(148,163,184,0.4);
+      background:rgba(15,23,42,0.85);
+      color:var(--text-soft);
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+    body.light-theme .hero-meta-pill{
+      background:rgba(255,255,255,0.95);
+    }
+    .hero-meta-pill i{
+      color:var(--primary);
+      font-size:0.9rem;
+    }
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:8px;
+    }
+    .btn-primary,
+    .btn-ghost{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:10px 20px;
+      border-radius:999px;
+      font-size:0.9rem;
+      font-weight:600;
+      letter-spacing:0.06em;
+      text-transform:uppercase;
+      border:1px solid transparent;
+      cursor:pointer;
+      transition:transform 0.18s ease,box-shadow 0.18s ease,background 0.18s ease,color 0.18s ease,border-color 0.18s ease;
+    }
+    .btn-primary{
+      background:linear-gradient(135deg,var(--primary),var(--accent));
+      color:#020617;
+      box-shadow:0 20px 45px rgba(34,211,238,0.55);
+    }
+    .btn-primary:hover{
+      transform:translateY(-1px) scale(1.02);
+      box-shadow:0 22px 55px rgba(56,189,248,0.75);
+    }
+    .btn-ghost{
+      border-color:rgba(148,163,184,0.4);
+      background:rgba(15,23,42,0.8);
+      color:var(--text-soft);
+    }
+    body.light-theme .btn-ghost{
+      background:rgba(255,255,255,0.95);
+    }
+    .btn-ghost:hover{
+      border-color:var(--primary);
+      color:var(--text);
+      transform:translateY(-1px);
+    }
+    .hero-social{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin-top:16px;
+    }
+    .hero-social-label{
+      font-size:0.78rem;
+      text-transform:uppercase;
+      letter-spacing:0.18em;
+      color:var(--text-soft);
+    }
+    .social-icons{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+    .social-icons a{
+      width:32px;
+      height:32px;
+      border-radius:999px;
+      border:1px solid rgba(148,163,184,0.4);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--text-soft);
+      background:rgba(15,23,42,0.9);
+      transition:transform 0.18s ease,box-shadow 0.18s ease,border-color 0.18s ease,color 0.18s ease,background 0.18s ease;
+      font-size:1.1rem;
+    }
+    body.light-theme .social-icons a{
+      background:rgba(255,255,255,0.98);
+    }
+    .social-icons a:hover{
+      transform:translateY(-1px);
+      border-color:var(--primary);
+      color:var(--primary);
+      box-shadow:0 12px 28px rgba(56,189,248,0.55);
+      background:rgba(15,23,42,1);
+    }
+    body.light-theme .social-icons a:hover{
+      background:#0f172a;
+      color:#e5e7eb;
+    }
+
+    .hero-aside{
+      position:relative;
+    }
+    .hero-card{
+      position:relative;
+      border-radius:28px;
+      background:linear-gradient(145deg,rgba(15,23,42,0.96),rgba(15,23,42,0.90));
+      border:1px solid rgba(148,163,184,0.35);
+      box-shadow:var(--shadow-soft);
+      padding:22px 22px 20px;
+      overflow:hidden;
+      backdrop-filter:blur(18px);
+      isolation:isolate;
+    }
+    body.light-theme .hero-card{
+      background:linear-gradient(145deg,rgba(255,255,255,0.99),rgba(248,250,252,0.98));
+      border-color:rgba(148,163,184,0.16);
+    }
+    .hero-card-gradient{
+      position:absolute;
+      inset:-60px;
+      background:
+        conic-gradient(from 240deg at 0% 0%,rgba(56,189,248,0.22),transparent 40%,rgba(129,140,248,0.20),transparent 70%,rgba(236,72,153,0.18));
+      opacity:0.85;
+      mix-blend-mode:screen;
+      pointer-events:none;
+    }
+    body.light-theme .hero-card-gradient{
+      opacity:0.55;
+      mix-blend-mode:normal;
+    }
+    .hero-card-inner{
+      position:relative;
+      z-index:1;
+    }
+    .hero-card-header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom:18px;
+      gap:10px;
+    }
+    .hero-avatar{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .avatar-circle{
+      width:42px;
+      height:42px;
+      border-radius:16px;
+      background:radial-gradient(circle at 30% 15%,#e0f2fe,#22d3ee,#6366f1);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#020617;
+      font-weight:800;
+      box-shadow:0 0 24px rgba(56,189,248,0.7);
+    }
+    .avatar-meta span:first-child{
+      font-size:0.9rem;
+      font-weight:600;
+    }
+    .avatar-meta span:last-child{
+      font-size:0.75rem;
+      color:var(--text-soft);
+    }
+    .hero-badge{
+      padding:5px 11px;
+      border-radius:999px;
+      font-size:0.75rem;
+      background:rgba(15,23,42,0.82);
+      border:1px solid rgba(148,163,184,0.35);
+      color:var(--primary);
+      display:inline-flex;
+      align-items:center;
+      gap:7px;
+    }
+    body.light-theme .hero-badge{
+      background:rgba(255,255,255,0.98);
+    }
+    .hero-badge i{
+      font-size:0.9rem;
+    }
+    .hero-card-body{
+      padding:8px 0 14px;
+      display:grid;
+      grid-template-columns:1fr;
+      gap:14px;
+    }
+    .hero-tag-grid{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+    .hero-tag{
+      font-size:0.78rem;
+      padding:4px 10px;
+      border-radius:999px;
+      border:1px solid rgba(148,163,184,0.5);
+      background:rgba(15,23,42,0.85);
+      color:var(--text-soft);
+    }
+    body.light-theme .hero-tag{
+      background:rgba(255,255,255,0.98);
+    }
+    .hero-highlight{
+      font-size:0.85rem;
+      color:var(--text-soft);
+    }
+    .hero-highlight span{
+      color:var(--primary);
+      font-weight:600;
+    }
+    .hero-metrics{
+      margin-top:6px;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .metric-pill{
+      flex:1 1 90px;
+      border-radius:18px;
+      padding:10px 12px;
+      background:rgba(15,23,42,0.92);
+      border:1px solid rgba(148,163,184,0.45);
+      display:flex;
+      flex-direction:column;
+      gap:3px;
+    }
+    body.light-theme .metric-pill{
+      background:rgba(255,255,255,0.98);
+    }
+    .metric-value{
+      font-weight:700;
+      font-size:1.15rem;
+      color:var(--primary);
+    }
+    .metric-label{
+      font-size:0.75rem;
+      color:var(--text-soft);
+    }
+    .hero-card-footer{
+      margin-top:16px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+      font-size:0.78rem;
+      color:var(--text-soft);
+    }
+    .hero-availability{
+      display:flex;
+      align-items:center;
+      gap:6px;
+    }
+    .hero-availability span.dot{
+      width:7px;
+      height:7px;
+      border-radius:999px;
+      background:#22c55e;
+      box-shadow:0 0 12px rgba(34,197,94,0.9);
+    }
+    .hero-timezones{
+      opacity:0.8;
+    }
+
+    /* ABOUT */
+    #about{
+      position:relative;
+    }
+    #about::before{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:linear-gradient(to bottom,rgba(15,23,42,0.02),rgba(15,23,42,0.6));
+      opacity:0.5;
+      pointer-events:none;
+    }
+    body.light-theme #about::before{
+      background:linear-gradient(to bottom,rgba(255,255,255,0.6),rgba(248,250,252,0.9));
+    }
+    .about-inner{
+      position:relative;
+      z-index:1;
+      display:grid;
+      grid-template-columns:minmax(0,1.4fr) minmax(0,1.1fr);
+      gap:40px;
+      align-items:flex-start;
+    }
+    .about-copy{
+      background:var(--bg-card-glass);
+      border-radius:var(--radius-lg);
+      padding:22px 22px 20px;
+      border:1px solid var(--border-subtle);
+      box-shadow:var(--shadow-soft);
+      backdrop-filter:blur(18px);
+    }
+    .about-copy p{
+      font-size:0.95rem;
+      color:var(--text-soft);
+      margin-bottom:10px;
+    }
+    .about-copy p:last-child{margin-bottom:0;}
+    .about-list{
+      margin-top:16px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px 18px;
+      font-size:0.9rem;
+    }
+    .about-list li{
+      list-style:none;
+      display:flex;
+      align-items:flex-start;
+      gap:8px;
+      color:var(--text-soft);
+    }
+    .about-list i{
+      color:var(--primary);
+      margin-top:2px;
+    }
+    .about-aside{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+    .about-tagline-card,
+    .about-focus-card{
+      background:var(--bg-card-glass);
+      border-radius:var(--radius-lg);
+      padding:16px 18px;
+      border:1px solid var(--border-subtle);
+      backdrop-filter:blur(18px);
+      box-shadow:var(--shadow-soft);
+      font-size:0.88rem;
+      color:var(--text-soft);
+    }
+    .about-tagline-card strong{
+      color:var(--primary);
+      font-weight:600;
+    }
+    .about-focus-badges{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:10px;
+    }
+    .about-focus-badges span{
+      padding:4px 11px;
+      border-radius:999px;
+      border:1px solid rgba(148,163,184,0.5);
+      font-size:0.78rem;
+      color:var(--text-soft);
+      background:rgba(15,23,42,0.85);
+    }
+    body.light-theme .about-focus-badges span{
+      background:rgba(255,255,255,0.98);
+    }
+
+    /* SERVICES */
+    #services{
+      position:relative;
+    }
+    #services::before{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:radial-gradient(circle at top,rgba(56,189,248,0.18),transparent 60%);
+      opacity:0.45;
+      pointer-events:none;
+    }
+    .services-inner{
+      position:relative;
+      z-index:1;
+    }
+    .services-grid{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:18px;
+    }
+    .service-card{
+      position:relative;
+      background:var(--bg-card-glass);
+      border-radius:20px;
+      padding:16px 16px 18px;
+      border:1px solid var(--border-subtle);
+      box-shadow:var(--shadow-soft);
+      backdrop-filter:blur(18px);
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      font-size:0.88rem;
+      color:var(--text-soft);
+    }
+    .service-icon{
+      width:30px;
+      height:30px;
+      border-radius:999px;
+      background:var(--primary-soft);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--primary);
+      margin-bottom:4px;
+    }
+    .service-title{
+      font-size:0.98rem;
+      font-weight:600;
+      color:var(--text);
+    }
+    .service-meta{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-top:6px;
+      font-size:0.78rem;
+    }
+    .service-meta span{
+      color:var(--text-soft);
+    }
+    .service-meta span.tag{
+      padding:3px 8px;
+      border-radius:999px;
+      background:rgba(15,23,42,0.9);
+      border:1px solid rgba(148,163,184,0.4);
+      color:var(--primary);
+    }
+    body.light-theme .service-meta span.tag{
+      background:rgba(255,255,255,0.98);
+    }
+
+    /* SKILLS */
+    #skills{
+      position:relative;
+    }
+    #skills::before{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:linear-gradient(to bottom,rgba(15,23,42,0.7),rgba(15,23,42,0.3));
+      opacity:0.7;
+      pointer-events:none;
+    }
+    body.light-theme #skills::before{
+      background:linear-gradient(to bottom,rgba(240,249,255,0.9),rgba(241,245,249,0.95));
+    }
+    .skills-inner{
+      position:relative;
+      z-index:1;
+      display:grid;
+      grid-template-columns:minmax(0,1.4fr) minmax(0,1.1fr);
+      gap:40px;
+      align-items:flex-start;
+    }
+    .skills-grid{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .skill{
+      display:flex;
+      flex-direction:column;
+      gap:4px;
+    }
+    .skill-label-row{
+      display:flex;
+      justify-content:space-between;
+      font-size:0.86rem;
+    }
+    .skill-label{
+      font-weight:500;
+    }
+    .skill-level{
+      color:var(--text-soft);
+      font-size:0.78rem;
+    }
+    .skill-bar-bg{
+      width:100%;
+      background:rgba(15,23,42,0.8);
+      height:10px;
+      border-radius:999px;
+      overflow:hidden;
+      position:relative;
+    }
+    body.light-theme .skill-bar-bg{
+      background:rgba(15,23,42,0.08);
+    }
+    .skill-bar-fill{
+      height:100%;
+      width:0%;
+      background:linear-gradient(90deg,var(--primary),var(--accent));
+      border-radius:999px;
+      position:relative;
+      transition:width 1.8s cubic-bezier(0.18,0.89,0.32,1.28);
+    }
+    .skills-note{
+      margin-top:14px;
+      font-size:0.82rem;
+      color:var(--text-soft);
+    }
+    .skills-highlight-card{
+      background:var(--bg-card-glass);
+      border-radius:var(--radius-lg);
+      padding:18px;
+      border:1px solid var(--border-subtle);
+      box-shadow:var(--shadow-soft);
+      font-size:0.88rem;
+      color:var(--text-soft);
+    }
+    .skills-highlight-card strong{
+      color:var(--primary);
+    }
+    .skills-counter-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:16px;
+      margin-top:14px;
+    }
+    .skills-counter{
+      flex:1 1 110px;
+      background:rgba(15,23,42,0.92);
+      border-radius:18px;
+      padding:10px 12px;
+      border:1px solid rgba(148,163,184,0.45);
+      display:flex;
+      flex-direction:column;
+      gap:4px;
+    }
+    body.light-theme .skills-counter{
+      background:rgba(255,255,255,0.98);
+    }
+    .counter{
+      font-size:1.4rem;
+      font-weight:700;
+      color:var(--primary);
+    }
+    .counter-label{
+      font-size:0.78rem;
+      color:var(--text-soft);
+    }
+
+    /* PORTFOLIO */
+    #portfolio{
+      position:relative;
+    }
+    #portfolio::before{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:radial-gradient(circle at top,rgba(56,189,248,0.26),transparent 65%);
+      opacity:0.5;
+      pointer-events:none;
+    }
+    .portfolio-inner{
+      position:relative;
+      z-index:1;
+    }
+    .portfolio-filters{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-bottom:24px;
+    }
+    .portfolio-filters button{
+      padding:6px 13px;
+      border-radius:999px;
+      border:1px solid rgba(148,163,184,0.45);
+      background:rgba(15,23,42,0.92);
+      color:var(--text-soft);
+      font-size:0.78rem;
+      font-weight:500;
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      cursor:pointer;
+      transition:background 0.18s ease,color 0.18s ease,border-color 0.18s ease,transform 0.18s ease;
+    }
+    body.light-theme .portfolio-filters button{
+      background:rgba(255,255,255,0.98);
+    }
+    .portfolio-filters button i{
+      font-size:0.85rem;
+    }
+    .portfolio-filters button.active,
+    .portfolio-filters button:hover{
+      background:var(--primary-soft);
+      border-color:var(--primary);
+      color:var(--primary);
+      transform:translateY(-1px);
+    }
+    .portfolio-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:18px;
+    }
+    .project{
+      position:relative;
+      border-radius:22px;
+      overflow:hidden;
+      background:var(--bg-card-glass);
+      border:1px solid var(--border-subtle);
+      box-shadow:var(--shadow-soft);
+      transform:translateY(0);
+      transition:transform 0.24s ease,box-shadow 0.24s ease,border-color 0.24s ease,background 0.24s ease;
+    }
+    .project img{
+      width:100%;
+      aspect-ratio:16/10;
+      object-fit:cover;
+      filter:saturate(1.15);
+      opacity:0.88;
+      transition:transform 0.3s ease,opacity 0.3s ease,filter 0.3s ease;
+    }
+    .project-overlay{
+      position:absolute;
+      inset:0;
+      background:linear-gradient(to top,rgba(15,23,42,0.95),rgba(15,23,42,0.0) 55%);
+      pointer-events:none;
+    }
+    .project-info{
+      position:absolute;
+      left:0;right:0;bottom:0;
+      padding:14px 14px 13px;
+      z-index:1;
+    }
+    .project-tag{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:3px 10px;
+      border-radius:999px;
+      font-size:0.72rem;
+      background:rgba(15,23,42,0.85);
+      border:1px solid rgba(148,163,184,0.4);
+      color:var(--primary);
+      margin-bottom:6px;
+    }
+    .project h4{
+      font-size:0.98rem;
+      margin-bottom:2px;
+    }
+    .project p{
+      font-size:0.8rem;
+      color:var(--text-soft);
+    }
+    .project p a{
+      color:var(--primary);
+      font-weight:500;
+    }
+    .project:hover{
+      transform:translateY(-6px);
+      border-color:var(--primary);
+      box-shadow:0 26px 60px rgba(15,23,42,0.85);
+    }
+    .project:hover img{
+      transform:scale(1.04);
+      opacity:1;
+      filter:saturate(1.25);
+    }
+
+    /* CONTACT */
+    #contact{
+      position:relative;
+    }
+    #contact::before{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:linear-gradient(to top,rgba(15,23,42,0.9),rgba(15,23,42,0.3));
+      opacity:0.8;
+    }
+    body.light-theme #contact::before{
+      background:linear-gradient(to top,rgba(248,250,252,0.96),rgba(241,245,249,0.85));
+    }
+    .contact-inner{
+      position:relative;
+      z-index:1;
+      display:grid;
+      grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);
+      gap:34px;
+      align-items:flex-start;
+    }
+    .contact-card{
+      background:var(--bg-card-glass);
+      border-radius:var(--radius-lg);
+      padding:20px 20px 18px;
+      border:1px solid var(--border-subtle);
+      box-shadow:var(--shadow-soft);
+      backdrop-filter:blur(18px);
+    }
+    .contact-card form{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .field-group{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .field{
+      flex:1;
+      display:flex;
+      flex-direction:column;
+      gap:4px;
+    }
+    .field label{
+      font-size:0.8rem;
+      color:var(--text-soft);
+    }
+    .field input,
+    .field textarea{
+      border-radius:12px;
+      border:1px solid rgba(148,163,184,0.45);
+      background:rgba(15,23,42,0.94);
+      padding:9px 11px;
+      font-size:0.9rem;
+      color:var(--text);
+      outline:none;
+      transition:border-color 0.18s ease,box-shadow 0.18s ease,background 0.18s ease;
+      resize:vertical;
+    }
+    body.light-theme .field input,
+    body.light-theme .field textarea{
+      background:rgba(255,255,255,0.98);
+    }
+    .field input:focus,
+    .field textarea:focus{
+      border-color:var(--primary);
+      box-shadow:0 0 0 1px rgba(56,189,248,0.6);
+    }
+    .contact-meta{
+      font-size:0.82rem;
+      color:var(--text-soft);
+      margin-top:4px;
+    }
+    .contact-meta span{
+      color:var(--primary);
+      font-weight:500;
+    }
+    .contact-side{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .contact-highlight{
+      font-size:0.9rem;
+      color:var(--text-soft);
+    }
+    .contact-chips{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+    .contact-chips span{
+      padding:4px 10px;
+      border-radius:999px;
+      border:1px solid rgba(148,163,184,0.5);
+      font-size:0.78rem;
+      color:var(--text-soft);
+      background:rgba(15,23,42,0.86);
+    }
+    body.light-theme .contact-chips span{
+      background:rgba(255,255,255,0.98);
+    }
+    .contact-links{
+      margin-top:10px;
+      display:grid;
+      gap:8px;
+      font-size:0.86rem;
+      color:var(--text-soft);
+    }
+    .contact-links a{
+      color:var(--primary);
+      font-weight:500;
+    }
+
+    /* FOOTER */
+    footer{
+      padding:20px;
+      text-align:center;
+      font-size:0.8rem;
+      color:var(--text-soft);
+      border-top:1px solid rgba(148,163,184,0.3);
+      background:rgba(15,23,42,0.95);
+    }
+    body.light-theme footer{
+      background:rgba(248,250,252,0.98);
+      border-top-color:rgba(148,163,184,0.12);
+    }
+    footer a{
+      color:var(--primary);
+      margin:0 8px;
+    }
+    footer a:hover{
+      text-decoration:underline;
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:960px){
+      .hero-inner,
+      .about-inner,
+      .skills-inner,
+      .contact-inner{
+        grid-template-columns:minmax(0,1fr);
+      }
+      .hero-aside{
+        order:-1;
+      }
+      .section-header{
+        text-align:left;
+      }
+      .section-subtitle{
+        max-width:none;
+      }
+      .services-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+    }
+    @media(max-width:768px){
+      section{padding:60px 18px;}
+      .hero{padding-top:26px;}
+      .hero-heading{font-size:2.1rem;}
+      .hero-card{
+        margin-top:16px;
+      }
+      .nav-links-wrapper{
+        position:fixed;
+        top:var(--nav-height);
+        left:0;
+        right:0;
+        padding:10px 18px 14px;
+        background:rgba(15,23,42,0.96);
+        border-bottom:1px solid rgba(148,163,184,0.35);
+        display:none;
+        flex-direction:column;
+        gap:10px;
+      }
+      body.light-theme .nav-links-wrapper{
+        background:rgba(255,255,255,0.98);
+      }
+      .nav-links-wrapper.open{display:flex;}
+      .nav-toggle{display:flex;}
+      .nav-right{gap:10px;}
+      .services-grid{
+        grid-template-columns:minmax(0,1fr);
+      }
+      .about-list{grid-template-columns:1fr;}
+      .contact-inner{gap:22px;}
+    }
+    @media(max-width:480px){
+      .hero-heading{font-size:1.9rem;}
+      .hero-meta{flex-direction:column;align-items:flex-start;}
+      .hero-actions{flex-direction:column;align-items:stretch;}
+    }
+  </style>
 </head>
-<body class="dark">
-
-<button class="theme-toggle" id="themeToggle">☀️</button>
-
-<nav id="navbar">
-  <a href="#about" class="nav-link active">Home</a>
-  <a href="#about" class="nav-link">About</a>
-  <a href="#portfolio" class="nav-link">Projects</a>
-  <a href="#contact" class="nav-link">Contact</a>
-</nav>
-
-<header>
-<h1>Hello, I'm Evans Githinji</h1>
-<p>Results-driven Software Engineer & Web Developer delivering scalable web applications and high-performance digital solutions.</p>
-<a href="#portfolio" class="btn">View My Work</a>
-<a href="#contact" class="btn">Contact Me</a>
-<div class="social-icons">
-  <a href="https://www.linkedin.com/in/evans-githinji-91a4489/" target="_blank"><i class="fab fa-linkedin"></i></a>
-  <a href="https://github.com/technerv" target="_blank"><i class="fab fa-github"></i></a>
-</div>
-</header>
-
-<section id="about">
-  <div class="container">
-    <h2>Professional Summary</h2>
-    <p class="bio">Results-driven Software Engineer and Web Developer with over 7 years of hands-on experience building scalable web applications, secure systems, and high-performance WordPress solutions. Strong background in full-stack development, IT support, and system integration, with proven ability to translate business requirements into reliable digital products. Adept at working independently or in teams, delivering clean code, and supporting organizational IT operations.</p>
-  </div>
-</section>
-
-<section id="skills">
-  <div class="container">
-    <h2>Core Skills</h2>
-    <div class="skills-grid">
-      <div class="skill"><div class="skill-label">Python</div><div class="skill-bar-bg"><div class="skill-bar-fill" data-percent="95%">95%</div></div></div>
-      <div class="skill"><div class="skill-label">JavaScript</div><div class="skill-bar-bg"><div class="skill-bar-fill" data-percent="90%">90%</div></div></div>
-      <div class="skill"><div class="skill-label">Django</div><div class="skill-bar-bg"><div class="skill-bar-fill" data-percent="85%">85%</div></div></div>
-      <div class="skill"><div class="skill-label">React</div><div class="skill-bar-bg"><div class="skill-bar-fill" data-percent="88%">88%</div></div></div>
-      <div class="skill"><div class="skill-label">WordPress & WooCommerce</div><div class="skill-bar-bg"><div class="skill-bar-fill" data-percent="98%">98%</div></div></div>
-    </div>
-
-    <div class="counters">
-      <div><div class="counter" data-target="7">0</div><div class="counter-label">Years Experience</div></div>
-      <div><div class="counter" data-target="150">0</div><div class="counter-label">Projects Completed</div></div>
-      <div><div class="counter" data-target="45">0</div><div class="counter-label">Clients Served</div></div>
-    </div>
-  </div>
-</section>
-
-<section id="portfolio">
-  <div class="container">
-    <h2>Portfolio</h2>
-    <div class="portfolio-filters">
-      <button class="filter-btn active" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="web">Web</button>
-      <button class="filter-btn" data-filter="wordpress">WordPress</button>
-    </div>
-    <div class="portfolio-grid">
-      <!-- Portfolio Items -->
-      <div class="project" data-category="web">
-        <img src="https://via.placeholder.com/400x250.png?text=Precious+Watersports" alt="Precious Watersports">
-        <div class="project-info"><h4>Precious Watersports, Diani</h4><p><a href="https://www.preciouswatersports.com" target="_blank">www.preciouswatersports.com</a></p></div>
+<body>
+  <div class="nav-shell" id="top">
+    <div class="container nav-inner">
+      <div class="nav-brand">
+        <div class="logo-mark">EG</div>
+        <div>
+          <div class="brand-text-main">Evans Githinji</div>
+          <div class="brand-text-sub">Software Engineer · Web &amp; AI</div>
+        </div>
       </div>
-      <div class="project" data-category="web">
-        <img src="https://via.placeholder.com/400x250.png?text=The+Economic+Group" alt="The Economic Group">
-        <div class="project-info"><h4>The Economic Group</h4><p><a href="https://www.theeconomicgroup.com" target="_blank">www.theeconomicgroup.com</a></p></div>
-      </div>
-      <div class="project" data-category="wordpress">
-        <img src="https://via.placeholder.com/400x250.png?text=Little+Angels+Network" alt="Little Angels Network">
-        <div class="project-info"><h4>Little Angels Network</h4><p><a href="https://www.littleangelsnetwork.or.ke" target="_blank">www.littleangelsnetwork.or.ke</a></p></div>
-      </div>
-      <div class="project" data-category="web">
-        <img src="https://via.placeholder.com/400x250.png?text=Future+Of+Work+Is+AI" alt="Future Of Work Is AI">
-        <div class="project-info"><h4>Future Of Work Is AI</h4><p><a href="https://www.futureofworkisai.com" target="_blank">www.futureofworkisai.com</a></p></div>
-      </div>
-      <div class="project" data-category="web">
-        <img src="https://via.placeholder.com/400x250.png?text=AINurtz" alt="AINurtz">
-        <div class="project-info"><h4>AINurtz</h4><p><a href="https://www.ainurtz.com" target="_blank">www.ainurtz.com</a></p></div>
-      </div>
-      <div class="project" data-category="web">
-        <img src="https://via.placeholder.com/400x250.png?text=Opplet" alt="Opplet">
-        <div class="project-info"><h4>Opplet</h4><p><a href="https://www.opplet.com" target="_blank">www.opplet.com</a></p></div>
-      </div>
-      <div class="project" data-category="web">
-        <img src="https://via.placeholder.com/400x250.png?text=EmployableU" alt="EmployableU">
-        <div class="project-info"><h4>EmployableU</h4><p><a href="https://www.employableu.com" target="_blank">www.employableu.com</a></p></div>
-      </div>
-      <div class="project" data-category="wordpress">
-        <img src="https://via.placeholder.com/400x250.png?text=Educaship" alt="Educaship">
-        <div class="project-info"><h4>Educaship</h4><p><a href="https://www.educaship.com" target="_blank">www.educaship.com</a></p></div>
-      </div>
-      <div class="project" data-category="web">
-        <img src="https://via.placeholder.com/400x250.png?text=WiseNxt+Academy" alt="WiseNxt Academy">
-        <div class="project-info"><h4>WiseNxt Academy</h4><p><a href="https://www.wisenxt.com" target="_blank">www.wisenxt.com</a></p></div>
-      </div>
-      <div class="project" data-category="web">
-        <img src="https://via.placeholder.com/400x250.png?text=KenyaX" alt="KenyaX">
-        <div class="project-info"><h4>KenyaX</h4><p><a href="https://www.kenyax.com" target="_blank">www.kenyax.com</a></p></div>
-      </div>
-      <div class="project" data-category="wordpress">
-        <img src="https://via.placeholder.com/400x250.png?text=Kimplanter+Seedlings" alt="Kimplanter Seedlings">
-        <div class="project-info"><h4>Kimplanter Seedlings & Nurseries</h4><p><a href="https://www.kimplanterseedlings.co.ke" target="_blank">www.kimplanterseedlings.co.ke</a></p></div>
-      </div>
-      <div class="project" data-category="web">
-        <img src="https://via.placeholder.com/400x250.png?text=Arch+Property+Investments" alt="Arch Property Investments">
-        <div class="project-info"><h4>Arch Property Investments, UK</h4><p><a href="https://www.archpropertyinvestments.co.uk" target="_blank">www.archpropertyinvestments.co.uk</a></p></div>
-      </div>
-      <div class="project" data-category="web">
-        <img src="https://via.placeholder.com/400x250.png?text=Better+Living+Care" alt="Better Living Care">
-        <div class="project-info"><h4>Better Living Care, UK</h4><p><a href="https://www.betterlivingcare.co.uk" target="_blank">www.betterlivingcare.co.uk</a></p></div>
-      </div>
-      <div class="project" data-category="web">
-        <img src="https://via.placeholder.com/400x250.png?text=Arn+Care+Limited" alt="Arn Care Limited">
-        <div class="project-info"><h4>Arn Care Limited, UK</h4><p><a href="https://www.arncare.org" target="_blank">www.arncare.org</a></p></div>
-      </div>
-      <div class="project" data-category="web">
-        <img src="https://via.placeholder.com/400x250.png?text=Infinite+Oasis+Healthcare" alt="Infinite Oasis Healthcare">
-        <div class="project-info"><h4>Infinite Oasis Healthcare, UK</h4><p><a href="https://www.iohealthcare.org" target="_blank">www.iohealthcare.org</a></p></div>
-      </div>
-      <div class="project" data-category="web">
-        <img src="https://via.placeholder.com/400x250.png?text=Trusted+Home+Care+NW" alt="Trusted Home Care NW">
-        <div class="project-info"><h4>Trusted Home Care NW, UK</h4><p><a href="https://www.trustedhomecarenw.co.uk" target="_blank">www.trustedhomecarenw.co.uk</a></p></div>
+      <div class="nav-right">
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="nav-links-wrapper" id="navLinks">
+          <a href="#top" class="nav-link active">Home</a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="#services" class="nav-link">Services</a>
+          <a href="#portfolio" class="nav-link">Projects</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </div>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">☀️</button>
+        <a href="#contact" class="nav-cta">
+          <span class="icon-dot"></span>
+          <span>Let&apos;s talk</span>
+        </a>
       </div>
     </div>
   </div>
-</section>
 
-<section id="contact">
-  <div class="container">
-    <h2>Contact Me</h2>
-    <form>
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <textarea rows="5" placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-  </div>
-</section>
+  <header class="hero">
+    <div class="container hero-inner">
+      <div class="hero-intro">
+        <div class="hero-eyebrow">
+          <div class="pill">
+            <span class="pill-dot"></span>
+            <span>Available for collaborations &amp; consulting</span>
+          </div>
+          <div class="hero-subpill">Based in Nairobi · Working globally</div>
+        </div>
+        <h1 class="hero-heading">
+          Building <span class="highlight">fluid, modern</span><br />
+          digital experiences that convert.
+        </h1>
+        <p class="hero-tagline">
+          I help businesses, startups, and teams ship scalable web platforms &amp; high-impact digital products —
+          blending clean engineering, thoughtful UX, and a human, social touch.
+        </p>
+        <div class="hero-meta">
+          <div class="hero-meta-pill">
+            <i class="fas fa-layer-group"></i>
+            <span>Full‑stack web · Python · Django · React</span>
+          </div>
+          <div class="hero-meta-pill">
+            <i class="fas fa-store"></i>
+            <span>Premium WordPress &amp; WooCommerce solutions</span>
+          </div>
+        </div>
+        <div class="hero-actions">
+          <a href="#portfolio" class="btn-primary">
+            <span>View selected work</span>
+            <i class="fas fa-arrow-trend-up"></i>
+          </a>
+          <a href="#contact" class="btn-ghost">
+            <span>Book a quick intro call</span>
+            <i class="fas fa-calendar-check"></i>
+          </a>
+        </div>
+        <div class="hero-social">
+          <span class="hero-social-label">Connect</span>
+          <div class="social-icons">
+            <a href="https://www.linkedin.com/in/evans-githinji-91a4489/" target="_blank" aria-label="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/technerv" target="_blank" aria-label="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+        </div>
+      </div>
 
-<footer>
-  <p>© 2026 Evans Githinji | 
-    <a href="https://www.linkedin.com/in/evans-githinji-91a4489/" target="_blank"><i class="fab fa-linkedin"></i></a> 
-    <a href="https://github.com/technerv" target="_blank"><i class="fab fa-github"></i></a>
-  </p>
-</footer>
+      <aside class="hero-aside">
+        <div class="hero-card">
+          <div class="hero-card-gradient"></div>
+          <div class="hero-card-inner">
+            <div class="hero-card-header">
+              <div class="hero-avatar">
+                <div class="avatar-circle">EG</div>
+                <div class="avatar-meta">
+                  <span>Evans Githinji</span><br />
+                  <span>Software Engineer · Web, AI &amp; Product</span>
+                </div>
+              </div>
+              <div class="hero-badge">
+                <i class="fas fa-star"></i>
+                7+ yrs experience
+              </div>
+            </div>
+            <div class="hero-card-body">
+              <div class="hero-tag-grid">
+                <span class="hero-tag">🧠 Strategy‑led solutions</span>
+                <span class="hero-tag">⚙️ Robust engineering</span>
+                <span class="hero-tag">🎯 UX that feels intuitive</span>
+                <span class="hero-tag">🤝 Long‑term partnerships</span>
+              </div>
+              <p class="hero-highlight">
+                Trusted by <span>150+ projects</span> and organizations worldwide — from impact‑driven NGOs and
+                SMEs to modern digital-first brands.
+              </p>
+              <div class="hero-metrics">
+                <div class="metric-pill">
+                  <div class="metric-value counter" data-target="7">0</div>
+                  <div class="metric-label">Years shipping production software</div>
+                </div>
+                <div class="metric-pill">
+                  <div class="metric-value counter" data-target="150">0</div>
+                  <div class="metric-label">Completed projects &amp; launches</div>
+                </div>
+                <div class="metric-pill">
+                  <div class="metric-value counter" data-target="45">0</div>
+                  <div class="metric-label">Clients &amp; teams supported</div>
+                </div>
+              </div>
+            </div>
+            <div class="hero-card-footer">
+              <div class="hero-availability">
+                <span class="dot"></span>
+                <span>Accepting new projects &amp; strategic collaborations</span>
+              </div>
+              <div class="hero-timezones">
+                Working across EAT · UK · EU time zones
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </header>
 
-<script>
-  // Theme toggle
-  const toggleBtn = document.getElementById('themeToggle');
-  toggleBtn.addEventListener('click', ()=>{
-    document.body.classList.toggle('dark');
-    toggleBtn.textContent = document.body.classList.contains('dark') ? '☀️':'🌙';
-  });
+  <section id="about">
+    <div class="container about-inner">
+      <div>
+        <div class="section-header">
+          <div class="section-kicker">About</div>
+          <h2 class="section-title">Engineering with empathy &amp; clarity.</h2>
+          <p class="section-subtitle">
+            I blend strong technical foundations with a practical business mindset — designing solutions that are
+            maintainable, measurable, and meaningful for the people using them.
+          </p>
+        </div>
+        <div class="about-copy">
+          <p>
+            I&apos;m a results‑driven Software Engineer and Web Developer with over 7 years of experience building
+            scalable web applications, secure platforms, and high‑performance WordPress ecosystems.
+          </p>
+          <p>
+            My background spans full‑stack engineering, IT support, and systems integration — which means I&apos;m as
+            comfortable architecting backends as I am shaping front‑end experiences, automations, and support processes
+            around them.
+          </p>
+          <p>
+            I thrive in roles where I can partner with founders, stakeholders, and teams to clarify requirements,
+            translate them into robust technical plans, and then ship polished, production‑ready experiences.
+          </p>
+          <ul class="about-list">
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span>Full‑stack development in Python, Django, JavaScript, and React.</span>
+            </li>
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span>Premium WordPress, WooCommerce &amp; high‑traffic site optimization.</span>
+            </li>
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span>Solid IT &amp; infrastructure grounding — from support to secure deployments.</span>
+            </li>
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span>Clear, asynchronous communication with both technical and non‑technical teams.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
 
-  // Skills animation
-  document.querySelectorAll('.skill-bar-fill').forEach(el=>{
-    setTimeout(()=>{ el.style.width = el.dataset.percent; },500);
-  });
+      <aside class="about-aside">
+        <div class="about-tagline-card">
+          Over the years, I&apos;ve supported <strong>NGOs, SMEs, agencies, and global teams</strong> to launch
+          platforms that don&apos;t just look good — they align with business goals, work reliably under load, and feel
+          effortless for real users.
+        </div>
+        <div class="about-focus-card">
+          <div class="section-kicker" style="margin-bottom:6px;">Focus areas</div>
+          I&apos;m especially excited about:
+          <div class="about-focus-badges">
+            <span>Modern web platforms &amp; dashboards</span>
+            <span>AI‑assisted workflows</span>
+            <span>Education &amp; talent development</span>
+            <span>Impact &amp; mission‑driven projects</span>
+            <span>Systems that scale without chaos</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
 
-  // Counters
-  const counters = document.querySelectorAll('.counter');
-  counters.forEach(counter=>{
-    const updateCounter = ()=>{
-      const target = +counter.dataset.target;
-      const c = +counter.innerText;
-      const increment = target/100;
-      if(c < target){
-        counter.innerText = `${Math.ceil(c + increment)}`;
-        setTimeout(updateCounter,20);
-      } else { counter.innerText = target; }
-    };
-    updateCounter();
-  });
+  <section id="services">
+    <div class="container services-inner">
+      <div class="section-header">
+        <div class="section-kicker">Services</div>
+        <h2 class="section-title">Where I bring the most value.</h2>
+        <p class="section-subtitle">
+          From concept to launch, I partner with you as both an engineer and a thought‑partner — balancing
+          professionalism, business impact, and human‑centered design.
+        </p>
+      </div>
+      <div class="services-grid">
+        <article class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-laptop-code"></i>
+          </div>
+          <h3 class="service-title">Full‑stack product development</h3>
+          <p>
+            Design and build modern web applications, dashboards, and internal tools using Python, Django, JavaScript,
+            and React — with clean APIs and maintainable architecture.
+          </p>
+          <div class="service-meta">
+            <span>Ideal for SaaS, platforms &amp; internal tools</span>
+            <span class="tag">Product &amp; Engineering</span>
+          </div>
+        </article>
+        <article class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-store"></i>
+          </div>
+          <h3 class="service-title">WordPress &amp; WooCommerce</h3>
+          <p>
+            High‑performance WordPress ecosystems, custom themes, and conversion‑ready eCommerce stores tailored to your
+            brand, content, and growth goals.
+          </p>
+          <div class="service-meta">
+            <span>From corporate sites to online stores</span>
+            <span class="tag">Business &amp; Brand</span>
+          </div>
+        </article>
+        <article class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-robot"></i>
+          </div>
+          <h3 class="service-title">Automation &amp; AI‑assisted flows</h3>
+          <p>
+            Streamline operations, reporting, and support with smart integrations and automation — connecting your
+            existing tools into smooth, low‑friction workflows.
+          </p>
+          <div class="service-meta">
+            <span>Save time, reduce manual work</span>
+            <span class="tag">Ops &amp; Systems</span>
+          </div>
+        </article>
+        <article class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-handshake-angle"></i>
+          </div>
+          <h3 class="service-title">Technical partner &amp; advisory</h3>
+          <p>
+            Support for teams and founders: reviewing architecture, shaping roadmaps, and providing ongoing
+            engineering/IT guidance that grows with your organization.
+          </p>
+          <div class="service-meta">
+            <span>Retainers, consultations &amp; audits</span>
+            <span class="tag">Strategy &amp; Support</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
 
-  // Navbar active link
-  const sections = document.querySelectorAll('section');
-  const navLinks = document.querySelectorAll('.nav-link');
-  window.addEventListener('scroll', ()=>{
-    let current = '';
-    sections.forEach(section=>{
-      const sectionTop = section.offsetTop - 70;
-      if(scrollY >= sectionTop) current = section.getAttribute('id');
+  <section id="skills">
+    <div class="container skills-inner">
+      <div>
+        <div class="section-header">
+          <div class="section-kicker">Skills</div>
+          <h2 class="section-title">Tools I&apos;m strongest with.</h2>
+          <p class="section-subtitle">
+            A quick view of the technologies I reach for most often when designing, building, and scaling digital
+            experiences.
+          </p>
+        </div>
+        <div class="skills-grid">
+          <div class="skill">
+            <div class="skill-label-row">
+              <span class="skill-label">Python</span>
+              <span class="skill-level">Expert · 95%</span>
+            </div>
+            <div class="skill-bar-bg">
+              <div class="skill-bar-fill" data-percent="95%"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <div class="skill-label-row">
+              <span class="skill-label">JavaScript</span>
+              <span class="skill-level">Advanced · 90%</span>
+            </div>
+            <div class="skill-bar-bg">
+              <div class="skill-bar-fill" data-percent="90%"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <div class="skill-label-row">
+              <span class="skill-label">Django</span>
+              <span class="skill-level">Advanced · 85%</span>
+            </div>
+            <div class="skill-bar-bg">
+              <div class="skill-bar-fill" data-percent="85%"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <div class="skill-label-row">
+              <span class="skill-label">React</span>
+              <span class="skill-level">Advanced · 88%</span>
+            </div>
+            <div class="skill-bar-bg">
+              <div class="skill-bar-fill" data-percent="88%"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <div class="skill-label-row">
+              <span class="skill-label">WordPress &amp; WooCommerce</span>
+              <span class="skill-level">Expert · 98%</span>
+            </div>
+            <div class="skill-bar-bg">
+              <div class="skill-bar-fill" data-percent="98%"></div>
+            </div>
+          </div>
+        </div>
+        <p class="skills-note">
+          Beyond these, I regularly work with Linux servers, DNS &amp; hosting, deployment tooling, and modern
+          collaboration tools to keep projects healthy in the real world.
+        </p>
+      </div>
+      <aside>
+        <div class="skills-highlight-card">
+          <strong>Delivery mindset:</strong> I care deeply about the full lifecycle of what we ship — from the quality
+          of the codebase and developer experience to the little UX details that make interfaces feel fast, intuitive,
+          and inclusive.
+          <div class="skills-counter-row">
+            <div class="skills-counter">
+              <div class="counter" data-target="7">0</div>
+              <div class="counter-label">Years building in production</div>
+            </div>
+            <div class="skills-counter">
+              <div class="counter" data-target="150">0</div>
+              <div class="counter-label">Projects shipped across industries</div>
+            </div>
+            <div class="skills-counter">
+              <div class="counter" data-target="45">0</div>
+              <div class="counter-label">Teams, brands &amp; organizations supported</div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section id="portfolio">
+    <div class="container portfolio-inner">
+      <div class="section-header">
+        <div class="section-kicker">Selected work</div>
+        <h2 class="section-title">Projects that balance product, business &amp; people.</h2>
+        <p class="section-subtitle">
+          A snapshot of some of the brands and initiatives I&apos;ve helped bring online — from tourism and education to
+          healthcare and impact‑driven organizations.
+        </p>
+      </div>
+
+      <div class="portfolio-filters">
+        <button class="filter-btn active" data-filter="all">
+          <i class="fas fa-border-all"></i>
+          <span>All</span>
+        </button>
+        <button class="filter-btn" data-filter="web">
+          <i class="fas fa-globe"></i>
+          <span>Web platforms</span>
+        </button>
+        <button class="filter-btn" data-filter="wordpress">
+          <i class="fab fa-wordpress-simple"></i>
+          <span>WordPress &amp; WooCommerce</span>
+        </button>
+      </div>
+
+      <div class="portfolio-grid">
+        <article class="project" data-category="web">
+          <img src="https://via.placeholder.com/400x250.png?text=Precious+Watersports" alt="Precious Watersports" />
+          <div class="project-overlay"></div>
+          <div class="project-info">
+            <div class="project-tag">
+              <i class="fas fa-water"></i>
+              Tourism &amp; experiences
+            </div>
+            <h4>Precious Watersports, Diani</h4>
+            <p>
+              Booking‑friendly experience for a coastal water sports brand —
+              <a href="https://www.preciouswatersports.com" target="_blank">preciouswatersports.com</a>
+            </p>
+          </div>
+        </article>
+
+        <article class="project" data-category="web">
+          <img src="https://via.placeholder.com/400x250.png?text=The+Economic+Group" alt="The Economic Group" />
+          <div class="project-overlay"></div>
+          <div class="project-info">
+            <div class="project-tag">
+              <i class="fas fa-briefcase"></i>
+              Consulting &amp; business
+            </div>
+            <h4>The Economic Group</h4>
+            <p>
+              Professional online presence for an economic advisory group —
+              <a href="https://www.theeconomicgroup.com" target="_blank">theeconomicgroup.com</a>
+            </p>
+          </div>
+        </article>
+
+        <article class="project" data-category="wordpress">
+          <img src="https://via.placeholder.com/400x250.png?text=Little+Angels+Network" alt="Little Angels Network" />
+          <div class="project-overlay"></div>
+          <div class="project-info">
+            <div class="project-tag">
+              <i class="fas fa-heart"></i>
+              Non‑profit &amp; social impact
+            </div>
+            <h4>Little Angels Network</h4>
+            <p>
+              Mission‑driven site for a child‑focused NGO —
+              <a href="https://www.littleangelsnetwork.or.ke" target="_blank">littleangelsnetwork.or.ke</a>
+            </p>
+          </div>
+        </article>
+
+        <article class="project" data-category="web">
+          <img src="https://via.placeholder.com/400x250.png?text=Future+Of+Work+Is+AI" alt="Future Of Work Is AI" />
+          <div class="project-overlay"></div>
+          <div class="project-info">
+            <div class="project-tag">
+              <i class="fas fa-robot"></i>
+              Future of work &amp; AI
+            </div>
+            <h4>Future Of Work Is AI</h4>
+            <p>
+              A forward‑thinking hub on AI &amp; careers —
+              <a href="https://www.futureofworkisai.com" target="_blank">futureofworkisai.com</a>
+            </p>
+          </div>
+        </article>
+
+        <article class="project" data-category="web">
+          <img src="https://via.placeholder.com/400x250.png?text=AINurtz" alt="AINurtz" />
+          <div class="project-overlay"></div>
+          <div class="project-info">
+            <div class="project-tag">
+              <i class="fas fa-brain"></i>
+              AI &amp; community
+            </div>
+            <h4>AINurtz</h4>
+            <p>
+              Platform exploring AI learning and community —
+              <a href="https://www.ainurtz.com" target="_blank">ainurtz.com</a>
+            </p>
+          </div>
+        </article>
+
+        <article class="project" data-category="web">
+          <img src="https://via.placeholder.com/400x250.png?text=Opplet" alt="Opplet" />
+          <div class="project-overlay"></div>
+          <div class="project-info">
+            <div class="project-tag">
+              <i class="fas fa-network-wired"></i>
+              Digital solutions
+            </div>
+            <h4>Opplet</h4>
+            <p>
+              A modern digital brand presence —
+              <a href="https://www.opplet.com" target="_blank">opplet.com</a>
+            </p>
+          </div>
+        </article>
+
+        <article class="project" data-category="web">
+          <img src="https://via.placeholder.com/400x250.png?text=EmployableU" alt="EmployableU" />
+          <div class="project-overlay"></div>
+          <div class="project-info">
+            <div class="project-tag">
+              <i class="fas fa-graduation-cap"></i>
+              Careers &amp; employability
+            </div>
+            <h4>EmployableU</h4>
+            <p>
+              A platform focused on future‑ready skills —
+              <a href="https://www.employableu.com" target="_blank">employableu.com</a>
+            </p>
+          </div>
+        </article>
+
+        <article class="project" data-category="wordpress">
+          <img src="https://via.placeholder.com/400x250.png?text=Educaship" alt="Educaship" />
+          <div class="project-overlay"></div>
+          <div class="project-info">
+            <div class="project-tag">
+              <i class="fas fa-school"></i>
+              Education &amp; training
+            </div>
+            <h4>Educaship</h4>
+            <p>
+              Education‑focused site built on WordPress —
+              <a href="https://www.educaship.com" target="_blank">educaship.com</a>
+            </p>
+          </div>
+        </article>
+
+        <article class="project" data-category="web">
+          <img src="https://via.placeholder.com/400x250.png?text=WiseNxt+Academy" alt="WiseNxt Academy" />
+          <div class="project-overlay"></div>
+          <div class="project-info">
+            <div class="project-tag">
+              <i class="fas fa-chalkboard-teacher"></i>
+              Learning &amp; community
+            </div>
+            <h4>WiseNxt Academy</h4>
+            <p>
+              A learning‑oriented digital presence —
+              <a href="https://www.wisenxt.com" target="_blank">wisenxt.com</a>
+            </p>
+          </div>
+        </article>
+
+        <article class="project" data-category="web">
+          <img src="https://via.placeholder.com/400x250.png?text=KenyaX" alt="KenyaX" />
+          <div class="project-overlay"></div>
+          <div class="project-info">
+            <div class="project-tag">
+              <i class="fas fa-globe-africa"></i>
+              Community &amp; ecosystem
+            </div>
+            <h4>KenyaX</h4>
+            <p>
+              A modern platform for Kenyan innovators —
+              <a href="https://www.kenyax.com" target="_blank">kenyax.com</a>
+            </p>
+          </div>
+        </article>
+
+        <article class="project" data-category="wordpress">
+          <img src="https://via.placeholder.com/400x250.png?text=Kimplanter+Seedlings" alt="Kimplanter Seedlings" />
+          <div class="project-overlay"></div>
+          <div class="project-info">
+            <div class="project-tag">
+              <i class="fas fa-seedling"></i>
+              Agriculture &amp; agri‑business
+            </div>
+            <h4>Kimplanter Seedlings &amp; Nurseries</h4>
+            <p>
+              Growth‑ready presence for an agri‑business —
+              <a href="https://www.kimplanterseedlings.co.ke" target="_blank">kimplanterseedlings.co.ke</a>
+            </p>
+          </div>
+        </article>
+
+        <article class="project" data-category="web">
+          <img src="https://via.placeholder.com/400x250.png?text=Arch+Property+Investments" alt="Arch Property Investments" />
+          <div class="project-overlay"></div>
+          <div class="project-info">
+            <div class="project-tag">
+              <i class="fas fa-building"></i>
+              Real estate &amp; investment
+            </div>
+            <h4>Arch Property Investments, UK</h4>
+            <p>
+              Professional presence for a UK property firm —
+              <a href="https://www.archpropertyinvestments.co.uk" target="_blank">archpropertyinvestments.co.uk</a>
+            </p>
+          </div>
+        </article>
+
+        <article class="project" data-category="web">
+          <img src="https://via.placeholder.com/400x250.png?text=Better+Living+Care" alt="Better Living Care" />
+          <div class="project-overlay"></div>
+          <div class="project-info">
+            <div class="project-tag">
+              <i class="fas fa-hand-holding-heart"></i>
+              Healthcare &amp; care
+            </div>
+            <h4>Better Living Care, UK</h4>
+            <p>
+              Warm, trust‑building site for a care provider —
+              <a href="https://www.betterlivingcare.co.uk" target="_blank">betterlivingcare.co.uk</a>
+            </p>
+          </div>
+        </article>
+
+        <article class="project" data-category="web">
+          <img src="https://via.placeholder.com/400x250.png?text=Arn+Care+Limited" alt="Arn Care Limited" />
+          <div class="project-overlay"></div>
+          <div class="project-info">
+            <div class="project-tag">
+              <i class="fas fa-users"></i>
+              Care &amp; community
+            </div>
+            <h4>Arn Care Limited, UK</h4>
+            <p>
+              User‑friendly site for a UK‑based care provider —
+              <a href="https://www.arncare.org" target="_blank">arncare.org</a>
+            </p>
+          </div>
+        </article>
+
+        <article class="project" data-category="web">
+          <img src="https://via.placeholder.com/400x250.png?text=Infinite+Oasis+Healthcare" alt="Infinite Oasis Healthcare" />
+          <div class="project-overlay"></div>
+          <div class="project-info">
+            <div class="project-tag">
+              <i class="fas fa-notes-medical"></i>
+              Healthcare &amp; services
+            </div>
+            <h4>Infinite Oasis Healthcare, UK</h4>
+            <p>
+              Calm, clear experience for a healthcare brand —
+              <a href="https://www.iohealthcare.org" target="_blank">iohealthcare.org</a>
+            </p>
+          </div>
+        </article>
+
+        <article class="project" data-category="web">
+          <img src="https://via.placeholder.com/400x250.png?text=Trusted+Home+Care+NW" alt="Trusted Home Care NW" />
+          <div class="project-overlay"></div>
+          <div class="project-info">
+            <div class="project-tag">
+              <i class="fas fa-house-user"></i>
+              Home care services
+            </div>
+            <h4>Trusted Home Care NW, UK</h4>
+            <p>
+              Socially warm and professional web presence —
+              <a href="https://www.trustedhomecarenw.co.uk" target="_blank">trustedhomecarenw.co.uk</a>
+            </p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container contact-inner">
+      <div>
+        <div class="section-header">
+          <div class="section-kicker">Let&apos;s connect</div>
+          <h2 class="section-title">Tell me what you&apos;re building.</h2>
+          <p class="section-subtitle">
+            Whether you&apos;re validating an idea, levelling up an existing platform, or looking for a long‑term
+            technical partner — I&apos;d love to hear what you&apos;re working on.
+          </p>
+        </div>
+        <div class="contact-card">
+          <form>
+            <div class="field-group">
+              <div class="field">
+                <label for="name">Name</label>
+                <input id="name" type="text" name="name" placeholder="Your name" required />
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" type="email" name="email" placeholder="you@example.com" required />
+              </div>
+            </div>
+            <div class="field">
+              <label for="company">Organization / project (optional)</label>
+              <input id="company" type="text" name="company" placeholder="Company, initiative, or project name" />
+            </div>
+            <div class="field">
+              <label for="message">How can I help?</label>
+              <textarea id="message" name="message" rows="4" placeholder="Share a short description of your idea, project, or challenge." required></textarea>
+            </div>
+            <button type="submit" class="btn-primary" style="width:fit-content;margin-top:6px;">
+              <span>Send message</span>
+              <i class="fas fa-paper-plane"></i>
+            </button>
+            <div class="contact-meta">
+              I aim to respond within <span>1–2 business days</span> with next steps or a few clarifying questions.
+            </div>
+          </form>
+        </div>
+      </div>
+      <aside class="contact-side">
+        <p class="contact-highlight">
+          Prefer a more direct channel? I&apos;m happy to start with a brief async exchange or a short intro call to see
+          if we&apos;re a fit — no pressure, no jargon.
+        </p>
+        <div class="contact-chips">
+          <span>Project discovery &amp; scoping</span>
+          <span>Technical second opinion</span>
+          <span>Long‑term support &amp; maintenance</span>
+          <span>Team augmentation</span>
+          <span>Mentorship &amp; knowledge sharing</span>
+        </div>
+        <div class="contact-links">
+          <div>
+            Email: <a href="mailto:evans.githinji@example.com">evans.githinji@example.com</a>
+          </div>
+          <div>
+            LinkedIn: <a href="https://www.linkedin.com/in/evans-githinji-91a4489/" target="_blank">Let&apos;s connect professionally</a>
+          </div>
+          <div>
+            GitHub: <a href="https://github.com/technerv" target="_blank">@technerv</a> — a look at what I&apos;ve been experimenting with.
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <footer>
+    <p>
+      © 2026 Evans Githinji · Crafted with a balance of engineering rigor, business context, and social impact in mind.
+    </p>
+  </footer>
+
+  <script>
+    // Theme: apply saved preference
+    (function () {
+      const saved = localStorage.getItem('eg-theme');
+      if (saved === 'light') {
+        document.body.classList.add('light-theme');
+      }
+    })();
+
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('light-theme');
+      const isLight = document.body.classList.contains('light-theme');
+      themeToggle.textContent = isLight ? '🌙' : '☀️';
+      localStorage.setItem('eg-theme', isLight ? 'light' : 'dark');
     });
-    navLinks.forEach(link=>{
-      link.classList.remove('active');
-      if(link.getAttribute('href') === '#' + current) link.classList.add('active');
-    });
-  });
+    // Ensure correct icon on first paint
+    if (document.body.classList.contains('light-theme')) {
+      themeToggle.textContent = '🌙';
+    }
 
-  // Portfolio filtering
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const projects = document.querySelectorAll('.project');
-  filterBtns.forEach(btn=>{
-    btn.addEventListener('click', ()=>{
-      filterBtns.forEach(b=>b.classList.remove('active'));
-      btn.classList.add('active');
-      const filter = btn.dataset.filter;
-      projects.forEach(p=>{
-        if(filter==='all' || p.dataset.category===filter){
-          p.style.display='block';
-        }else{
-          p.style.display='none';
+    // Mobile navigation
+    const navToggle = document.getElementById('navToggle');
+    const navLinksWrapper = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      navLinksWrapper.classList.toggle('open');
+    });
+    navLinksWrapper.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinksWrapper.classList.remove('open');
+      });
+    });
+
+    // Skills animation
+    document.querySelectorAll('.skill-bar-fill').forEach(el => {
+      const percent = el.dataset.percent || '0%';
+      setTimeout(() => {
+        el.style.width = percent;
+      }, 400);
+    });
+
+    // Counters
+    const counters = document.querySelectorAll('.counter');
+    counters.forEach(counter => {
+      const updateCounter = () => {
+        const target = +counter.dataset.target;
+        const current = +counter.innerText;
+        const increment = Math.max(target / 80, 1);
+        if (current < target) {
+          counter.innerText = `${Math.ceil(current + increment)}`;
+          setTimeout(updateCounter, 18);
+        } else {
+          counter.innerText = target;
+        }
+      };
+      updateCounter();
+    });
+
+    // Navbar active link on scroll
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-link');
+    window.addEventListener('scroll', () => {
+      let currentId = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 90;
+        if (scrollY >= sectionTop) {
+          currentId = section.getAttribute('id');
+        }
+      });
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        const href = link.getAttribute('href');
+        if (href === '#' + currentId || (currentId === '' && href === '#top')) {
+          link.classList.add('active');
         }
       });
     });
-  });
-</script>
+
+    // Portfolio filtering
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projects = document.querySelectorAll('.project');
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        projects.forEach(p => {
+          const category = p.dataset.category;
+          if (filter === 'all' || category === filter) {
+            p.style.display = 'block';
+          } else {
+            p.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
