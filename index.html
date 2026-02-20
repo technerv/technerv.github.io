@@ -9,78 +9,78 @@
   *{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;}
   body{font-family:'Inter',sans-serif;line-height:1.6;color:#f0f0f0;background:#0a0a23;transition:background 0.3s,color 0.3s;}
   a{text-decoration:none;color:inherit;}
-  section{padding:80px 20px;}
+  section{padding:60px 20px;} /* reduced spacing */
   .container{max-width:1200px;margin:0 auto;}
-  
-  /* Navbar */
-  nav{position:sticky;top:0;background:#111133;padding:15px 20px;display:flex;justify-content:center;gap:12px;z-index:999;box-shadow:0 2px 8px rgba(0,0,0,0.1);}
-  nav a{font-weight:600;padding:8px 12px;border-radius:5px;transition:0.3s;color:#f0f0f0;}
-  nav a.active,a:hover{background:#00bcd4;color:#fff;}
-
-  /* Header */
-  header{background:#0a0a23;color:#fff;padding:80px 20px;text-align:center;position:relative;}
-  header h1{font-size:3rem;margin-bottom:20px;opacity:0;transform:translateY(-20px);animation:fadeUp 1s forwards 0.2s;}
-  header p{font-size:1.2rem;margin-bottom:30px;opacity:0;transform:translateY(-20px);animation:fadeUp 1s forwards 0.4s;}
+  header{background:#0a0a23;color:#fff;padding:60px 20px;text-align:center;position:relative;}
+  header h1{font-size:3rem;margin-bottom:15px;opacity:0;transform:translateY(-20px);animation:fadeUp 1s forwards 0.2s;}
+  header p{font-size:1.2rem;margin-bottom:20px;opacity:0;transform:translateY(-20px);animation:fadeUp 1s forwards 0.4s;}
   .btn{display:inline-block;background:#00bcd4;color:#fff;padding:12px 30px;border-radius:6px;font-weight:600;margin:5px;transition:0.3s;}
   .btn:hover{background:#009bb5;}
-  .hero-socials{margin-top:20px;opacity:0;transform:translateY(-20px);animation:fadeUp 1s forwards 0.6s;display:flex;justify-content:center;gap:20px;}
-  .hero-socials a svg{transition:0.3s;}
-  .hero-socials a:hover svg{fill:#00ffe0;}
+  .social-icons{margin-top:15px;opacity:0;transform:translateY(-20px);animation:fadeUp 1s forwards 0.6s;}
+  .social-icons a{margin:0 10px;font-size:1.5rem;color:#fff;transition:0.3s;}
+  .social-icons a:hover{color:#00bcd4;}
+
+  /* Navbar */
+  nav{position:sticky;top:0;background:#111133;padding:10px 20px;display:flex;justify-content:center;gap:8px;z-index:999;box-shadow:0 2px 8px rgba(0,0,0,0.1);}
+  nav a{font-weight:600;padding:6px 10px;border-radius:5px;transition:0.3s;color:#f0f0f0;}
+  nav a.active,a:hover{background:#00bcd4;color:#fff;}
 
   /* About */
-  #about h2,#skills h2,#portfolio h2,#contact h2{text-align:center;font-size:2rem;margin-bottom:20px;color:#f0f0f0;}
-  #about .bio{max-width:800px;margin:0 auto 40px auto;font-size:1.1rem;color:#ccc;line-height:1.8;}
+  #about h2,#skills h2,#portfolio h2,#contact h2{text-align:center;font-size:2rem;margin-bottom:15px;color:#f0f0f0;}
+  #about .bio{max-width:800px;margin:0 auto 30px auto;font-size:1.1rem;color:#ccc;line-height:1.6;}
 
   /* Skills */
   .skills-grid{max-width:900px;margin:0 auto;}
-  .skill{margin-bottom:20px;}
-  .skill-label{font-weight:600;margin-bottom:6px;}
+  .skill{margin-bottom:15px;}
+  .skill-label{font-weight:600;margin-bottom:5px;}
   .skill-bar-bg{width:100%;background:#1a1a40;height:18px;border-radius:9px;overflow:hidden;}
   .skill-bar-fill{height:100%;width:0%;background:#00bcd4;border-radius:9px;text-align:right;color:#fff;font-weight:600;padding-right:5px;transition:width 2s;}
 
   /* Counters */
-  .counters{display:flex;justify-content:center;gap:50px;margin:40px 0;text-align:center;}
+  .counters{display:flex;justify-content:center;gap:40px;margin:30px 0;text-align:center;}
   .counter{font-size:2rem;font-weight:700;color:#00bcd4;}
   .counter-label{font-size:1rem;color:#ccc;}
 
   /* Portfolio */
-  .portfolio-filters{text-align:center;margin-bottom:30px;}
-  .portfolio-filters button{padding:8px 15px;margin:0 8px;border:none;border-radius:6px;background:#1a1a40;color:#00bcd4;font-weight:600;cursor:pointer;transition:0.3s;}
+  .portfolio-filters{text-align:center;margin-bottom:20px;}
+  .portfolio-filters button{padding:6px 12px;margin:0 5px;border:none;border-radius:6px;background:#1a1a40;color:#00bcd4;font-weight:600;cursor:pointer;transition:0.3s;}
   .portfolio-filters button.active, .portfolio-filters button:hover{background:#00bcd4;color:#fff;}
-  .portfolio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;}
-  .project{border-radius:8px;overflow:hidden;box-shadow:0 4px 10px rgba(0,0,0,0.05);transition:0.3s;opacity:0;transform:translateY(20px);}
+  .portfolio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
+  .project{border-radius:8px;overflow:hidden;box-shadow:0 4px 10px rgba(0,0,0,0.2);transition:0.3s;opacity:0;transform:translateY(20px);}
   .project:hover{transform:scale(1.03);}
-  .project-info{padding:15px;background:#111133;color:#ccc;}
-  .project-info h4{font-size:1.1rem;margin-bottom:8px;color:#f0f0f0;}
-  .project-info p a{color:#00bcd4;}
-  .project-info p a:hover{color:#fff;}
+  .project-info{padding:12px;background:#111133;}
+  .project-info h4{font-size:1.1rem;margin-bottom:5px;color:#fff;}
+  .project-info p{font-size:0.95rem;color:#ccc;}
 
   /* Contact */
   #contact{text-align:center;}
-  #contact form{max-width:500px;margin:0 auto;display:flex;flex-direction:column;gap:15px;}
+  #contact form{max-width:500px;margin:0 auto;display:flex;flex-direction:column;gap:12px;}
   #contact input,#contact textarea{padding:12px;border-radius:6px;border:none;font-size:1rem;}
   #contact button{background:#00bcd4;color:#fff;border:none;padding:12px;border-radius:6px;font-weight:600;cursor:pointer;transition:0.3s;}
   #contact button:hover{background:#009bb5;}
 
   /* Footer */
-  footer{text-align:center;padding:40px 20px;background:#111133;color:#fff;}
-  footer a svg{vertical-align:middle;transition:0.3s;}
-  footer a:hover svg{fill:#00ffe0;}
+  footer{text-align:center;padding:30px 20px;background:#111133;color:#fff;}
+  footer a{color:#00bcd4;margin:0 8px;transition:0.3s;}
+  footer a:hover{color:#fff;}
 
   /* Animations */
   @keyframes fadeUp{to{opacity:1;transform:translateY(0);}}
   .theme-toggle{position:fixed;top:20px;right:20px;background:#00bcd4;color:#fff;border:none;padding:10px 15px;border-radius:50px;cursor:pointer;z-index:1000;transition:0.3s;}
   .theme-toggle:hover{background:#009bb5;}
-  @media(max-width:768px){header h1{font-size:2.2rem;} nav{flex-direction:column;gap:10px;}}
+
+  @media(max-width:768px){header h1{font-size:2.2rem;} nav{flex-direction:row;gap:5px;}}
 </style>
 </head>
-<body class="dark">
+<body>
+
+<button class="theme-toggle" id="themeToggle">☀️</button>
 
 <!-- NAVBAR -->
 <nav id="navbar">
+  <a href="#about" class="nav-link">Home</a>
   <a href="#about" class="nav-link">About</a>
-  <a href="#skills" class="nav-link">Skills</a>
-  <a href="#portfolio" class="nav-link">Portfolio</a>
+  <a href="#portfolio" class="nav-link">Projects</a>
   <a href="#contact" class="nav-link">Contact</a>
 </nav>
 
@@ -89,19 +89,20 @@
 <p>Results-driven Software Engineer & Web Developer delivering scalable web applications and high-performance digital solutions.</p>
 <a href="#portfolio" class="btn">View My Work</a>
 <a href="#contact" class="btn">Contact Me</a>
-
-<div class="hero-socials">
-  <a href="https://www.linkedin.com/in/evans-githinji-91a4489/" target="_blank" aria-label="LinkedIn">
-    <svg width="24" height="24" fill="#00bcd4" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.762 2.239 5 5 5h14c2.762 0 5-2.238 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.792-1.75-1.767s.784-1.767 1.75-1.767c.967 0 1.75.792 1.75 1.767s-.783 1.767-1.75 1.767zm13.5 11.268h-3v-5.604c0-1.337-.027-3.062-1.866-3.062-1.867 0-2.153 1.459-2.153 2.967v5.699h-3v-10h2.879v1.367h.041c.401-.757 1.379-1.555 2.838-1.555 3.034 0 3.596 1.997 3.596 4.594v5.594z"/></svg>
+<div class="social-icons">
+  <a href="https://www.linkedin.com/in/evans-githinji-91a4489/" target="_blank">
+    <svg style="width:24px;height:24px;fill:#fff;" viewBox="0 0 24 24">
+      <path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM0 8h5v16H0V8zm7.5 0h4.7v2.2h.1c.65-1.2 2.25-2.45 4.65-2.45C20.85 7.75 24 10.4 24 16.3V24h-5v-7.7c0-1.85-.03-4.25-2.6-4.25-2.6 0-3 2.04-3 4.15V24H7.5V8z"/>
+    </svg>
   </a>
-
-  <a href="https://github.com/technerv" target="_blank" aria-label="GitHub">
-    <svg width="24" height="24" fill="#00bcd4" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387.6.111.82-.261.82-.577 0-.285-.01-1.04-.015-2.04-3.338.725-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.84 1.237 1.84 1.237 1.07 1.835 2.809 1.305 3.495.998.108-.775.418-1.305.762-1.605-2.665-.305-5.467-1.332-5.467-5.932 0-1.31.468-2.38 1.235-3.22-.123-.303-.536-1.524.117-3.176 0 0 1.008-.322 3.3 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.29-1.552 3.296-1.23 3.296-1.23.655 1.653.242 2.874.12 3.176.77.84 1.232 1.91 1.232 3.22 0 4.61-2.807 5.624-5.48 5.921.43.371.813 1.102.813 2.222 0 1.604-.015 2.896-.015 3.286 0 .319.218.694.825.576 4.765-1.588 8.2-6.084 8.2-11.386 0-6.627-5.373-12-12-12z"/></svg>
+  <a href="https://github.com/technerv" target="_blank">
+    <svg style="width:24px;height:24px;fill:#fff;" viewBox="0 0 24 24">
+      <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.38 7.85 10.88.57.11.78-.25.78-.55v-2c-3.2.69-3.88-1.54-3.88-1.54-.52-1.32-1.28-1.67-1.28-1.67-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.2 1.77 1.2 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.72-1.54-2.55-.3-5.23-1.28-5.23-5.72 0-1.26.45-2.29 1.2-3.1-.12-.3-.52-1.53.12-3.18 0 0 .97-.31 3.18 1.18a11.07 11.07 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.65.24 2.88.12 3.18.75.81 1.2 1.84 1.2 3.1 0 4.44-2.68 5.42-5.23 5.71.42.36.78 1.08.78 2.18v3.23c0 .3.21.66.78.55A10.5 10.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/>
+    </svg>
   </a>
 </div>
 </header>
 
-<!-- About -->
 <section id="about">
   <div class="container">
     <h2>Professional Summary</h2>
@@ -109,7 +110,6 @@
   </div>
 </section>
 
-<!-- Skills -->
 <section id="skills">
   <div class="container">
     <h2>Core Skills</h2>
@@ -127,7 +127,6 @@
   </div>
 </section>
 
-<!-- Portfolio -->
 <section id="portfolio">
   <div class="container">
     <h2>Portfolio</h2>
@@ -137,7 +136,7 @@
       <button class="filter-btn" data-filter="wordpress">WordPress</button>
     </div>
     <div class="portfolio-grid">
-      <!-- Example Project -->
+      <!-- Sample Project -->
       <div class="project" data-category="web">
         <img src="https://via.placeholder.com/400x250.png?text=Precious+Watersports" alt="Precious Watersports">
         <div class="project-info">
@@ -145,12 +144,11 @@
           <p><a href="https://www.preciouswatersports.com" target="_blank">www.preciouswatersports.com</a></p>
         </div>
       </div>
-      <!-- Repeat all projects as in your previous list -->
+      <!-- Add all other projects as in your previous list, same format -->
     </div>
   </div>
 </section>
 
-<!-- Contact -->
 <section id="contact">
   <div class="container">
     <h2>Contact Me</h2>
@@ -163,57 +161,62 @@
   </div>
 </section>
 
-<!-- Footer -->
 <footer>
   <p>© 2026 Evans Githinji | 
-    <a href="https://www.linkedin.com/in/evans-githinji-91a4489/" target="_blank" aria-label="LinkedIn">
-      <svg width="18" height="18" fill="#00bcd4" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.762 2.239 5 5 5h14c2.762 0 5-2.238 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.792-1.75-1.767s.784-1.767 1.75-1.767c.967 0 1.75.792 1.75 1.767s-.783 1.767-1.75 1.767zm13.5 11.268h-3v-5.604c0-1.337-.027-3.062-1.866-3.062-1.867 0-2.153 1.459-2.153 2.967v5.699h-3v-10h2.879v1.367h.041c.401-.757 1.379-1.555 2.838-1.555 3.034 0 3.596 1.997 3.596 4.594v5.594z"/></svg>
+    <a href="https://www.linkedin.com/in/evans-githinji-91a4489/" target="_blank">
+      <svg style="width:20px;height:20px;fill:#00bcd4;" viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM0 8h5v16H0V8zm7.5 0h4.7v2.2h.1c.65-1.2 2.25-2.45 4.65-2.45C20.85 7.75 24 10.4 24 16.3V24h-5v-7.7c0-1.85-.03-4.25-2.6-4.25-2.6 0-3 2.04-3 4.15V24H7.5V8z"/></svg>
     </a> 
-    <a href="https://github.com/technerv" target="_blank" aria-label="GitHub">
-      <svg width="18" height="18" fill="#00bcd4" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387.6.111.82-.261.82-.577 0-.285-.01-1.04-.015-2.04-3.338.725-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.84 1.237 1.84 1.237 1.07 1.835 2.809 1.305 3.495.998.108-.775.418-1.305.762-1.605-2.665-.305-5.467-1.332-5.467-5.932 0-1.31.468-2.38 1.235-3.22-.123-.303-.536-1.524.117-3.176 0 0 1.008-.322 3.3 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.29-1.552 3.296-1.23 3.296-1.23.655 1.653.242 2.874.12 3.176.77.84 1.232 1.91 1.232 3.22 0 4.61-2.807 5.624-5.48 5.921.43.371.813 1.102.813 2.222 0 1.604-.015 2.896-.015 3.286 0 .319.218.694.825.576 4.765-1.588 8.2-6.084 8.2-11.386 0-6.627-5.373-12-12-12z"/></svg>
+    <a href="https://github.com/technerv" target="_blank">
+      <svg style="width:20px;height:20px;fill:#00bcd4;" viewBox="0 0 24 24"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.38 7.85 10.88.57.11.78-.25.78-.55v-2c-3.2.69-3.88-1.54-3.88-1.54-.52-1.32-1.28-1.67-1.28-1.67-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.2 1.77 1.2 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.72-1.54-2.55-.3-5.23-1.28-5.23-5.72 0-1.26.45-2.29 1.2-3.1-.12-.3-.52-1.53.12-3.18 0 0 .97-.31 3.18 1.18a11.07 11.07 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.65.24 2.88.12 3.18.75.81 1.2 1.84 1.2 3.1 0 4.44-2.68 5.42-5.23 5.71.42.36.78 1.08.78 2.18v3.23c0 .3.21.66.78.55A10.5 10.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
     </a>
   </p>
 </footer>
 
 <script>
-  // Skills Bar Animation
+  // Theme toggle
+  const toggleBtn = document.getElementById('themeToggle');
+  toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    toggleBtn.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+  });
+
+  // Skill bars animation
   const skillBars = document.querySelectorAll('.skill-bar-fill');
   skillBars.forEach(bar => {
     const percent = bar.dataset.percent;
     setTimeout(() => bar.style.width = percent, 500);
   });
 
-  // Counter Animation
+  // Counters animation
   const counters = document.querySelectorAll('.counter');
   counters.forEach(counter => {
     counter.innerText = '0';
     const updateCounter = () => {
       const target = +counter.dataset.target;
-      const count = +counter.innerText;
+      const c = +counter.innerText;
       const increment = target / 100;
-      if(count < target){
-        counter.innerText = Math.ceil(count + increment);
+      if(c < target){
+        counter.innerText = `${Math.ceil(c + increment)}`;
         setTimeout(updateCounter, 20);
-      } else {counter.innerText = target;}
+      } else { counter.innerText = target; }
     };
     updateCounter();
   });
 
-  // Portfolio Filter
+  // Portfolio filters
   const filterBtns = document.querySelectorAll('.filter-btn');
   const projects = document.querySelectorAll('.project');
-  filterBtns.forEach(btn=>{
-    btn.addEventListener('click',()=>{
-      filterBtns.forEach(b=>b.classList.remove('active'));
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       const filter = btn.dataset.filter;
-      projects.forEach(p=>{
-        if(filter==='all' || p.dataset.category===filter){
-          p.style.display='block';
-        } else {p.style.display='none';}
+      projects.forEach(p => {
+        if(filter === 'all' || p.dataset.category === filter){p.style.display='block';}else{p.style.display='none';}
       });
     });
   });
 </script>
+
 </body>
 </html>
