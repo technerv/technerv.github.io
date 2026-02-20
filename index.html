@@ -6,185 +6,151 @@
 <title>Evans Githinji | Portfolio</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-  /* --- Global --- */
   *{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;}
-  html{scroll-behavior:smooth;}
-  body{font-family:'Inter',sans-serif;line-height:1.6;color:#e0e0e0;background:#0a0a23;}
+  body{font-family:'Inter',sans-serif;line-height:1.6;color:#f0f0f0;background:#0a0a23;transition:background 0.3s,color 0.3s;}
   a{text-decoration:none;color:inherit;}
-  img{max-width:100%;display:block;border-radius:8px;}
-  section{padding:100px 20px;}
-  .container{max-width:1000px;margin:0 auto;}
+  section{padding:80px 20px;}
+  .container{max-width:1200px;margin:0 auto;}
   
-  /* --- Navbar --- */
-  nav{position:fixed;top:0;width:100%;display:flex;justify-content:center;gap:30px;background:rgba(10,10,35,0.85);backdrop-filter:blur(10px);padding:15px 0;z-index:1000;}
-  nav a{color:#e0e0e0;font-weight:600;padding:8px 12px;border-radius:5px;transition:0.3s;}
+  /* Navbar */
+  nav{position:sticky;top:0;background:#111133;padding:15px 20px;display:flex;justify-content:center;gap:12px;z-index:999;box-shadow:0 2px 8px rgba(0,0,0,0.1);}
+  nav a{font-weight:600;padding:8px 12px;border-radius:5px;transition:0.3s;color:#f0f0f0;}
   nav a.active,a:hover{background:#00bcd4;color:#fff;}
-  
-  /* --- Hero --- */
-  header{height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;}
-  header h1{font-size:3rem;margin-bottom:20px;}
-  header p{font-size:1.2rem;margin-bottom:30px;max-width:700px;}
-  .hero-btn{display:inline-block;background:#00bcd4;color:#fff;padding:12px 30px;margin:5px;border-radius:6px;font-weight:600;transition:0.3s;}
-  .hero-btn:hover{background:#009bb5;}
-  .hero-socials{margin-top:20px;display:flex;gap:15px;}
-  .hero-socials a{color:#00bcd4;font-weight:600;transition:0.3s;}
-  .hero-socials a:hover{color:#fff;}
-  
-  /* --- About --- */
-  #about h2,#projects h2,#contact h2{text-align:center;font-size:2rem;margin-bottom:40px;}
-  #about p{max-width:800px;margin:0 auto;font-size:1.1rem;color:#c0c0c0;line-height:1.8;text-align:center;}
-  
-  /* --- Projects --- */
-  #projects .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;}
-  .project{background:#111133;padding:15px;border-radius:10px;transition:0.3s;opacity:0;transform:translateY(20px);}
+
+  /* Header */
+  header{background:#0a0a23;color:#fff;padding:80px 20px;text-align:center;position:relative;}
+  header h1{font-size:3rem;margin-bottom:20px;opacity:0;transform:translateY(-20px);animation:fadeUp 1s forwards 0.2s;}
+  header p{font-size:1.2rem;margin-bottom:30px;opacity:0;transform:translateY(-20px);animation:fadeUp 1s forwards 0.4s;}
+  .btn{display:inline-block;background:#00bcd4;color:#fff;padding:12px 30px;border-radius:6px;font-weight:600;margin:5px;transition:0.3s;}
+  .btn:hover{background:#009bb5;}
+  .hero-socials{margin-top:20px;opacity:0;transform:translateY(-20px);animation:fadeUp 1s forwards 0.6s;display:flex;justify-content:center;gap:20px;}
+  .hero-socials a svg{transition:0.3s;}
+  .hero-socials a:hover svg{fill:#00ffe0;}
+
+  /* About */
+  #about h2,#skills h2,#portfolio h2,#contact h2{text-align:center;font-size:2rem;margin-bottom:20px;color:#f0f0f0;}
+  #about .bio{max-width:800px;margin:0 auto 40px auto;font-size:1.1rem;color:#ccc;line-height:1.8;}
+
+  /* Skills */
+  .skills-grid{max-width:900px;margin:0 auto;}
+  .skill{margin-bottom:20px;}
+  .skill-label{font-weight:600;margin-bottom:6px;}
+  .skill-bar-bg{width:100%;background:#1a1a40;height:18px;border-radius:9px;overflow:hidden;}
+  .skill-bar-fill{height:100%;width:0%;background:#00bcd4;border-radius:9px;text-align:right;color:#fff;font-weight:600;padding-right:5px;transition:width 2s;}
+
+  /* Counters */
+  .counters{display:flex;justify-content:center;gap:50px;margin:40px 0;text-align:center;}
+  .counter{font-size:2rem;font-weight:700;color:#00bcd4;}
+  .counter-label{font-size:1rem;color:#ccc;}
+
+  /* Portfolio */
+  .portfolio-filters{text-align:center;margin-bottom:30px;}
+  .portfolio-filters button{padding:8px 15px;margin:0 8px;border:none;border-radius:6px;background:#1a1a40;color:#00bcd4;font-weight:600;cursor:pointer;transition:0.3s;}
+  .portfolio-filters button.active, .portfolio-filters button:hover{background:#00bcd4;color:#fff;}
+  .portfolio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;}
+  .project{border-radius:8px;overflow:hidden;box-shadow:0 4px 10px rgba(0,0,0,0.05);transition:0.3s;opacity:0;transform:translateY(20px);}
   .project:hover{transform:scale(1.03);}
-  .project h4{font-size:1.1rem;margin-bottom:10px;color:#00bcd4;}
-  .project a{color:#00bcd4;font-weight:500;transition:0.3s;}
-  .project a:hover{color:#fff;}
-  
-  /* --- Contact --- */
+  .project-info{padding:15px;background:#111133;color:#ccc;}
+  .project-info h4{font-size:1.1rem;margin-bottom:8px;color:#f0f0f0;}
+  .project-info p a{color:#00bcd4;}
+  .project-info p a:hover{color:#fff;}
+
+  /* Contact */
+  #contact{text-align:center;}
   #contact form{max-width:500px;margin:0 auto;display:flex;flex-direction:column;gap:15px;}
-  #contact input,#contact textarea{padding:12px;border-radius:6px;border:none;font-size:1rem;background:#111133;color:#fff;}
+  #contact input,#contact textarea{padding:12px;border-radius:6px;border:none;font-size:1rem;}
   #contact button{background:#00bcd4;color:#fff;border:none;padding:12px;border-radius:6px;font-weight:600;cursor:pointer;transition:0.3s;}
   #contact button:hover{background:#009bb5;}
-  
-  /* --- Footer --- */
-  footer{text-align:center;padding:40px 20px;color:#c0c0c0;background:#111133;}
-  footer a{color:#00bcd4;transition:0.3s;}
-  footer a:hover{color:#fff;}
-  
-  /* --- Animations --- */
+
+  /* Footer */
+  footer{text-align:center;padding:40px 20px;background:#111133;color:#fff;}
+  footer a svg{vertical-align:middle;transition:0.3s;}
+  footer a:hover svg{fill:#00ffe0;}
+
+  /* Animations */
   @keyframes fadeUp{to{opacity:1;transform:translateY(0);}}
-  .fade-up{opacity:0;transform:translateY(20px);animation:fadeUp 1s forwards;}
-  
-  /* --- Responsive --- */
+  .theme-toggle{position:fixed;top:20px;right:20px;background:#00bcd4;color:#fff;border:none;padding:10px 15px;border-radius:50px;cursor:pointer;z-index:1000;transition:0.3s;}
+  .theme-toggle:hover{background:#009bb5;}
   @media(max-width:768px){header h1{font-size:2.2rem;} nav{flex-direction:column;gap:10px;}}
 </style>
 </head>
-<body>
+<body class="dark">
 
-<!-- Navbar -->
-<nav>
-  <a href="#about" class="nav-link active">About</a>
-  <a href="#projects" class="nav-link">Projects</a>
+<!-- NAVBAR -->
+<nav id="navbar">
+  <a href="#about" class="nav-link">About</a>
+  <a href="#skills" class="nav-link">Skills</a>
+  <a href="#portfolio" class="nav-link">Portfolio</a>
   <a href="#contact" class="nav-link">Contact</a>
 </nav>
 
-<!-- Hero Section -->
-<!-- Hero Socials with Icons -->
+<header>
+<h1>Hello, I'm Evans Githinji</h1>
+<p>Results-driven Software Engineer & Web Developer delivering scalable web applications and high-performance digital solutions.</p>
+<a href="#portfolio" class="btn">View My Work</a>
+<a href="#contact" class="btn">Contact Me</a>
+
 <div class="hero-socials">
   <a href="https://www.linkedin.com/in/evans-githinji-91a4489/" target="_blank" aria-label="LinkedIn">
-    <!-- LinkedIn SVG Icon -->
-    <svg width="24" height="24" fill="#00bcd4" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.762 2.239 5 5 5h14c2.762 0 5-2.238 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.792-1.75-1.767s.784-1.767 1.75-1.767c.967 0 1.75.792 1.75 1.767s-.783 1.767-1.75 1.767zm13.5 11.268h-3v-5.604c0-1.337-.027-3.062-1.866-3.062-1.867 0-2.153 1.459-2.153 2.967v5.699h-3v-10h2.879v1.367h.041c.401-.757 1.379-1.555 2.838-1.555 3.034 0 3.596 1.997 3.596 4.594v5.594z"/>
-    </svg>
+    <svg width="24" height="24" fill="#00bcd4" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.762 2.239 5 5 5h14c2.762 0 5-2.238 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.792-1.75-1.767s.784-1.767 1.75-1.767c.967 0 1.75.792 1.75 1.767s-.783 1.767-1.75 1.767zm13.5 11.268h-3v-5.604c0-1.337-.027-3.062-1.866-3.062-1.867 0-2.153 1.459-2.153 2.967v5.699h-3v-10h2.879v1.367h.041c.401-.757 1.379-1.555 2.838-1.555 3.034 0 3.596 1.997 3.596 4.594v5.594z"/></svg>
   </a>
 
   <a href="https://github.com/technerv" target="_blank" aria-label="GitHub">
-    <!-- GitHub SVG Icon -->
-    <svg width="24" height="24" fill="#00bcd4" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path d="M12 0c-6.627 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387.6.111.82-.261.82-.577 0-.285-.01-1.04-.015-2.04-3.338.725-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.84 1.237 1.84 1.237 1.07 1.835 2.809 1.305 3.495.998.108-.775.418-1.305.762-1.605-2.665-.305-5.467-1.332-5.467-5.932 0-1.31.468-2.38 1.235-3.22-.123-.303-.536-1.524.117-3.176 0 0 1.008-.322 3.3 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.29-1.552 3.296-1.23 3.296-1.23.655 1.653.242 2.874.12 3.176.77.84 1.232 1.91 1.232 3.22 0 4.61-2.807 5.624-5.48 5.921.43.371.813 1.102.813 2.222 0 1.604-.015 2.896-.015 3.286 0 .319.218.694.825.576 4.765-1.588 8.2-6.084 8.2-11.386 0-6.627-5.373-12-12-12z"/>
-    </svg>
+    <svg width="24" height="24" fill="#00bcd4" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387.6.111.82-.261.82-.577 0-.285-.01-1.04-.015-2.04-3.338.725-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.84 1.237 1.84 1.237 1.07 1.835 2.809 1.305 3.495.998.108-.775.418-1.305.762-1.605-2.665-.305-5.467-1.332-5.467-5.932 0-1.31.468-2.38 1.235-3.22-.123-.303-.536-1.524.117-3.176 0 0 1.008-.322 3.3 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.29-1.552 3.296-1.23 3.296-1.23.655 1.653.242 2.874.12 3.176.77.84 1.232 1.91 1.232 3.22 0 4.61-2.807 5.624-5.48 5.921.43.371.813 1.102.813 2.222 0 1.604-.015 2.896-.015 3.286 0 .319.218.694.825.576 4.765-1.588 8.2-6.084 8.2-11.386 0-6.627-5.373-12-12-12z"/></svg>
   </a>
 </div>
-<header>
-  <h1>Hi, I'm Evans Githinji</h1>
-  <p>Software Engineer & Web Developer delivering scalable web applications, secure systems, and high-performance WordPress solutions.</p>
-  <div>
-    <a href="#projects" class="hero-btn">View Work</a>
-    <a href="#contact" class="hero-btn">Contact Me</a>
-  </div>
-  <div class="hero-socials">
-    <a href="https://www.linkedin.com/in/evans-githinji-91a4489/" target="_blank">LinkedIn</a>
-    <a href="https://github.com/technerv" target="_blank">GitHub</a>
-  </div>
 </header>
 
-<!-- About Section -->
+<!-- About -->
 <section id="about">
   <div class="container">
-    <h2>About Me</h2>
-    <p>
-      Results-driven Software Engineer and Web Developer with over 7 years of hands-on experience building scalable web applications, secure systems, and high-performance WordPress solutions. Adept at translating business requirements into reliable digital products and supporting organizational IT operations.
-    </p>
+    <h2>Professional Summary</h2>
+    <p class="bio">Results-driven Software Engineer and Web Developer with over 7 years of hands-on experience building scalable web applications, secure systems, and high-performance WordPress solutions. Strong background in full-stack development, IT support, and system integration, with proven ability to translate business requirements into reliable digital products. Adept at working independently or in teams, delivering clean code, and supporting organizational IT operations.</p>
   </div>
 </section>
 
-<!-- Projects Section -->
-<section id="projects">
+<!-- Skills -->
+<section id="skills">
   <div class="container">
-    <h2>Projects</h2>
-    <div class="projects-grid">
-      <!-- Portfolio Projects -->
-      <div class="project fade-up">
-        <h4>Precious Watersports, Diani</h4>
-        <a href="https://www.preciouswatersports.com" target="_blank">www.preciouswatersports.com</a>
-      </div>
-      <div class="project fade-up">
-        <h4>The Economic Group</h4>
-        <a href="https://www.theeconomicgroup.com" target="_blank">www.theeconomicgroup.com</a>
-      </div>
-      <div class="project fade-up">
-        <h4>Little Angels Network</h4>
-        <a href="https://www.littleangelsnetwork.or.ke" target="_blank">www.littleangelsnetwork.or.ke</a>
-      </div>
-      <div class="project fade-up">
-        <h4>Future Of Work Is AI</h4>
-        <a href="https://www.futureofworkisai.com" target="_blank">www.futureofworkisai.com</a>
-      </div>
-      <div class="project fade-up">
-        <h4>AINurtz</h4>
-        <a href="https://www.ainurtz.com" target="_blank">www.ainurtz.com</a>
-      </div>
-      <div class="project fade-up">
-        <h4>Opplet</h4>
-        <a href="https://www.opplet.com" target="_blank">www.opplet.com</a>
-      </div>
-      <div class="project fade-up">
-        <h4>EmployableU</h4>
-        <a href="https://www.employableu.com" target="_blank">www.employableu.com</a>
-      </div>
-      <div class="project fade-up">
-        <h4>Educaship</h4>
-        <a href="https://www.educaship.com" target="_blank">www.educaship.com</a>
-      </div>
-      <div class="project fade-up">
-        <h4>WiseNxt Academy</h4>
-        <a href="https://www.wisenxt.com" target="_blank">www.wisenxt.com</a>
-      </div>
-      <div class="project fade-up">
-        <h4>KenyaX</h4>
-        <a href="https://www.kenyax.com" target="_blank">www.kenyax.com</a>
-      </div>
-      <div class="project fade-up">
-        <h4>Kimplanter Seedlings & Nurseries</h4>
-        <a href="https://www.kimplanterseedlings.co.ke" target="_blank">www.kimplanterseedlings.co.ke</a>
-      </div>
-      <div class="project fade-up">
-        <h4>Arch Property Investments, UK</h4>
-        <a href="https://www.archpropertyinvestments.co.uk" target="_blank">www.archpropertyinvestments.co.uk</a>
-      </div>
-      <div class="project fade-up">
-        <h4>Better Living Care, UK</h4>
-        <a href="https://www.betterlivingcare.co.uk" target="_blank">www.betterlivingcare.co.uk</a>
-      </div>
-      <div class="project fade-up">
-        <h4>Arn Care Limited, UK</h4>
-        <a href="https://www.arncare.org" target="_blank">www.arncare.org</a>
-      </div>
-      <div class="project fade-up">
-        <h4>Infinite Oasis Healthcare, UK</h4>
-        <a href="https://www.iohealthcare.org" target="_blank">www.iohealthcare.org</a>
-      </div>
-      <div class="project fade-up">
-        <h4>Trusted Home Care NW, UK</h4>
-        <a href="https://www.trustedhomecarenw.co.uk" target="_blank">www.trustedhomecarenw.co.uk</a>
-      </div>
+    <h2>Core Skills</h2>
+    <div class="skill"><div class="skill-label">Python</div><div class="skill-bar-bg"><div class="skill-bar-fill" data-percent="95%">95%</div></div></div>
+    <div class="skill"><div class="skill-label">JavaScript</div><div class="skill-bar-bg"><div class="skill-bar-fill" data-percent="90%">90%</div></div></div>
+    <div class="skill"><div class="skill-label">Django</div><div class="skill-bar-bg"><div class="skill-bar-fill" data-percent="85%">85%</div></div></div>
+    <div class="skill"><div class="skill-label">React</div><div class="skill-bar-bg"><div class="skill-bar-fill" data-percent="88%">88%</div></div></div>
+    <div class="skill"><div class="skill-label">WordPress & WooCommerce</div><div class="skill-bar-bg"><div class="skill-bar-fill" data-percent="92%">92%</div></div></div>
+
+    <div class="counters">
+      <div><div class="counter" data-target="7">0</div><div class="counter-label">Years Experience</div></div>
+      <div><div class="counter" data-target="120">0</div><div class="counter-label">Projects Completed</div></div>
+      <div><div class="counter" data-target="50">0</div><div class="counter-label">Clients Served</div></div>
     </div>
   </div>
 </section>
 
-<!-- Contact Section -->
+<!-- Portfolio -->
+<section id="portfolio">
+  <div class="container">
+    <h2>Portfolio</h2>
+    <div class="portfolio-filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="web">Web</button>
+      <button class="filter-btn" data-filter="wordpress">WordPress</button>
+    </div>
+    <div class="portfolio-grid">
+      <!-- Example Project -->
+      <div class="project" data-category="web">
+        <img src="https://via.placeholder.com/400x250.png?text=Precious+Watersports" alt="Precious Watersports">
+        <div class="project-info">
+          <h4>Precious Watersports, Diani</h4>
+          <p><a href="https://www.preciouswatersports.com" target="_blank">www.preciouswatersports.com</a></p>
+        </div>
+      </div>
+      <!-- Repeat all projects as in your previous list -->
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
 <section id="contact">
   <div class="container">
     <h2>Contact Me</h2>
@@ -197,52 +163,57 @@
   </div>
 </section>
 
-
-<!-- Footer with Icons -->
+<!-- Footer -->
 <footer>
   <p>© 2026 Evans Githinji | 
     <a href="https://www.linkedin.com/in/evans-githinji-91a4489/" target="_blank" aria-label="LinkedIn">
-      <svg width="18" height="18" fill="#00bcd4" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.762 2.239 5 5 5h14c2.762 0 5-2.238 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.792-1.75-1.767s.784-1.767 1.75-1.767c.967 0 1.75.792 1.75 1.767s-.783 1.767-1.75 1.767zm13.5 11.268h-3v-5.604c0-1.337-.027-3.062-1.866-3.062-1.867 0-2.153 1.459-2.153 2.967v5.699h-3v-10h2.879v1.367h.041c.401-.757 1.379-1.555 2.838-1.555 3.034 0 3.596 1.997 3.596 4.594v5.594z"/>
-      </svg>
+      <svg width="18" height="18" fill="#00bcd4" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.762 2.239 5 5 5h14c2.762 0 5-2.238 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.792-1.75-1.767s.784-1.767 1.75-1.767c.967 0 1.75.792 1.75 1.767s-.783 1.767-1.75 1.767zm13.5 11.268h-3v-5.604c0-1.337-.027-3.062-1.866-3.062-1.867 0-2.153 1.459-2.153 2.967v5.699h-3v-10h2.879v1.367h.041c.401-.757 1.379-1.555 2.838-1.555 3.034 0 3.596 1.997 3.596 4.594v5.594z"/></svg>
     </a> 
     <a href="https://github.com/technerv" target="_blank" aria-label="GitHub">
-      <svg width="18" height="18" fill="#00bcd4" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 0c-6.627 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387.6.111.82-.261.82-.577 0-.285-.01-1.04-.015-2.04-3.338.725-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.84 1.237 1.84 1.237 1.07 1.835 2.809 1.305 3.495.998.108-.775.418-1.305.762-1.605-2.665-.305-5.467-1.332-5.467-5.932 0-1.31.468-2.38 1.235-3.22-.123-.303-.536-1.524.117-3.176 0 0 1.008-.322 3.3 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.29-1.552 3.296-1.23 3.296-1.23.655 1.653.242 2.874.12 3.176.77.84 1.232 1.91 1.232 3.22 0 4.61-2.807 5.624-5.48 5.921.43.371.813 1.102.813 2.222 0 1.604-.015 2.896-.015 3.286 0 .319.218.694.825.576 4.765-1.588 8.2-6.084 8.2-11.386 0-6.627-5.373-12-12-12z"/>
-      </svg>
+      <svg width="18" height="18" fill="#00bcd4" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387.6.111.82-.261.82-.577 0-.285-.01-1.04-.015-2.04-3.338.725-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.84 1.237 1.84 1.237 1.07 1.835 2.809 1.305 3.495.998.108-.775.418-1.305.762-1.605-2.665-.305-5.467-1.332-5.467-5.932 0-1.31.468-2.38 1.235-3.22-.123-.303-.536-1.524.117-3.176 0 0 1.008-.322 3.3 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.29-1.552 3.296-1.23 3.296-1.23.655 1.653.242 2.874.12 3.176.77.84 1.232 1.91 1.232 3.22 0 4.61-2.807 5.624-5.48 5.921.43.371.813 1.102.813 2.222 0 1.604-.015 2.896-.015 3.286 0 .319.218.694.825.576 4.765-1.588 8.2-6.084 8.2-11.386 0-6.627-5.373-12-12-12z"/></svg>
     </a>
   </p>
 </footer>
 
-<!-- JS -->
 <script>
-  // Fade-up animation
-  const fadeElements = document.querySelectorAll('.fade-up');
-  const observer = new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{
-      if(entry.isIntersecting){
-        entry.target.style.opacity='1';
-        entry.target.style.transform='translateY(0)';
-      }
-    });
-  },{threshold:0.3});
-  fadeElements.forEach(el=>observer.observe(el));
+  // Skills Bar Animation
+  const skillBars = document.querySelectorAll('.skill-bar-fill');
+  skillBars.forEach(bar => {
+    const percent = bar.dataset.percent;
+    setTimeout(() => bar.style.width = percent, 500);
+  });
 
-  // Active nav link
-  const sections = document.querySelectorAll('section');
-  const navLinks = document.querySelectorAll('nav a');
-  window.addEventListener('scroll',()=>{
-    let current='';
-    sections.forEach(section=>{
-      const sectionTop=section.offsetTop-100;
-      if(scrollY>=sectionTop) current=section.getAttribute('id');
-    });
-    navLinks.forEach(link=>{
-      link.classList.remove('active');
-      if(link.getAttribute('href')==='#'+current) link.classList.add('active');
+  // Counter Animation
+  const counters = document.querySelectorAll('.counter');
+  counters.forEach(counter => {
+    counter.innerText = '0';
+    const updateCounter = () => {
+      const target = +counter.dataset.target;
+      const count = +counter.innerText;
+      const increment = target / 100;
+      if(count < target){
+        counter.innerText = Math.ceil(count + increment);
+        setTimeout(updateCounter, 20);
+      } else {counter.innerText = target;}
+    };
+    updateCounter();
+  });
+
+  // Portfolio Filter
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const projects = document.querySelectorAll('.project');
+  filterBtns.forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      filterBtns.forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      projects.forEach(p=>{
+        if(filter==='all' || p.dataset.category===filter){
+          p.style.display='block';
+        } else {p.style.display='none';}
+      });
     });
   });
 </script>
-
 </body>
 </html>
