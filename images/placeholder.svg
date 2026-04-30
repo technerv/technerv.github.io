@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-label="Placeholder image">
+  <rect width="1200" height="800" fill="#0B1220"/>
+  <g fill="#7C3AED" font-family="Outfit, Inter, sans-serif" font-size="48">
+    <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#7C3AED" opacity="0.9">Placeholder</text>
+  </g>
+</svg>
