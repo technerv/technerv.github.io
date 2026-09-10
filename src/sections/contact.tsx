@@ -96,7 +96,7 @@ export function Contact() {
                 </h3>
 
                 <div className="space-y-5">
-                  <a href="mailto:hello@technerv.com" className="group flex items-center gap-4 p-4 rounded-2xl hover:bg-[var(--muted)] transition-all duration-300 -mx-2">
+                  <a href="mailto:technervkenya@gmail.com" className="group flex items-center gap-4 p-4 rounded-2xl hover:bg-[var(--muted)] transition-all duration-300 -mx-2">
                     <div className="relative w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-blue-500 flex items-center justify-center shadow-lg shrink-0 group-hover:scale-110 transition-transform duration-300">
                       <Mail size={20} className="text-white" />
                     </div>
@@ -105,7 +105,7 @@ export function Contact() {
                         Email
                       </div>
                       <div className="font-medium truncate group-hover:text-indigo-400 transition-colors">
-                        technervkenya@gmail.com | technerv@proton.me
+                        technervkenya@gmail.com
                       </div>
                     </div>
                     <ArrowRight size={16} className="ml-auto text-[var(--muted-foreground)] group-hover:text-indigo-400 group-hover:translate-x-1 transition-all shrink-0 opacity-0 group-hover:opacity-100" />
