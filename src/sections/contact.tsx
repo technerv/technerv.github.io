@@ -105,7 +105,7 @@ export function Contact() {
                         Email
                       </div>
                       <div className="font-medium truncate group-hover:text-indigo-400 transition-colors">
-                        hello@technerv.com
+                        technervkenya@gmail.com | technerv@proton.me
                       </div>
                     </div>
                     <ArrowRight size={16} className="ml-auto text-[var(--muted-foreground)] group-hover:text-indigo-400 group-hover:translate-x-1 transition-all shrink-0 opacity-0 group-hover:opacity-100" />
@@ -120,7 +120,7 @@ export function Contact() {
                         WhatsApp
                       </div>
                       <div className="font-medium truncate group-hover:text-green-400 transition-colors">
-                        Chat directly
+                        +254 722 471224
                       </div>
                     </div>
                     <ArrowRight size={16} className="ml-auto text-[var(--muted-foreground)] group-hover:text-green-400 group-hover:translate-x-1 transition-all shrink-0 opacity-0 group-hover:opacity-100" />
@@ -135,7 +135,7 @@ export function Contact() {
                         Location
                       </div>
                       <div className="font-medium">
-                        Remote · Worldwide
+                        Remote · Kenya. Worldwide
                       </div>
                     </div>
                   </div>
@@ -146,13 +146,11 @@ export function Contact() {
                     Follow Us
                   </h4>
                   <div className="flex items-center gap-3">
-                    <a href="#" aria-label="GitHub" className="w-11 h-11 rounded-xl glass flex items-center justify-center hover:border-indigo-500/50 hover:text-white hover:bg-indigo-500/10 transition-all duration-300">
+                    <a href="https://github.com/technerv" aria-label="GitHub" className="w-11 h-11 rounded-xl glass flex items-center justify-center hover:border-indigo-500/50 hover:text-white hover:bg-indigo-500/10 transition-all duration-300">
                       <Github size={18} />
                     </a>
-                    <a href="#" aria-label="LinkedIn" className="w-11 h-11 rounded-xl glass flex items-center justify-center hover:border-indigo-500/50 hover:text-white hover:bg-indigo-500/10 transition-all duration-300">
-                      <Linkedin size={18} />
-                    </a>
-                    <a href="mailto:hello@technerv.com" aria-label="Email" className="w-11 h-11 rounded-xl glass flex items-center justify-center hover:border-indigo-500/50 hover:text-white hover:bg-indigo-500/10 transition-all duration-300">
+                
+                    <a href="mailto:technervkenya@gmail.com" aria-label="Email" className="w-11 h-11 rounded-xl glass flex items-center justify-center hover:border-indigo-500/50 hover:text-white hover:bg-indigo-500/10 transition-all duration-300">
                       <Mail size={18} />
                     </a>
                   </div>

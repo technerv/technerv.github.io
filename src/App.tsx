@@ -10,11 +10,11 @@ import { ScrollProgress } from '@/components/ui/scroll-progress'
 import { Hero } from '@/sections/hero'
 import { BrandTrust } from '@/sections/brand-trust'
 import { Services } from '@/sections/services'
-import { FeaturedWork } from '@/sections/featured-work'
 import { Process } from '@/sections/process'
 import { TechnologyStack } from '@/sections/technology-stack'
 import { WhyTechnerv } from '@/sections/why-technerv'
 import { Testimonials } from '@/sections/testimonials'
+import { ClientProjects } from '@/sections/client-projects'
 import { Contact } from '@/sections/contact'
 
 function AppContent() {
@@ -41,7 +41,7 @@ function AppContent() {
               <Hero />
               <BrandTrust />
               <Services />
-              <FeaturedWork />
+              <ClientProjects />
               <Process />
               <TechnologyStack />
               <WhyTechnerv />

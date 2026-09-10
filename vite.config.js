@@ -1,9 +1,21 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { fileURLToPath, URL } from 'node:url';
+import { copyFileSync } from 'node:fs';
+import { resolve } from 'node:path';
+function spaFallback(outDir) {
+    var resolvedOutDir = resolve(outDir);
+    return {
+        name: 'spa-fallback-404',
+        apply: 'build',
+        closeBundle: function () {
+            copyFileSync(resolve(resolvedOutDir, 'index.html'), resolve(resolvedOutDir, '404.html'));
+        },
+    };
+}
 export default defineConfig({
-    plugins: [react()],
-    base: './',
+    plugins: [react(), spaFallback('dist')],
+    base: '/',
     resolve: {
         alias: {
             '@': fileURLToPath(new URL('./src', import.meta.url)),

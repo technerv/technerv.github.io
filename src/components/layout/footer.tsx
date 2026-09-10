@@ -24,10 +24,9 @@ export function Footer() {
             </p>
             <div className="flex items-center gap-3">
               {[
-                { icon: Github, href: '#', label: 'GitHub' },
-                { icon: Linkedin, href: '#', label: 'LinkedIn' },
-                { icon: Mail, href: 'mailto:hello@technerv.com', label: 'Email' },
-                { icon: MessageCircleCode, href: '#', label: 'WhatsApp' },
+                { icon: Github, href: 'https://github.com/technerv', label: 'GitHub' },
+                { icon: Mail, href: 'mailto:technervkenya@gmail.com', label: 'Email' },
+                { icon: MessageCircleCode, href: 'https://wa.me/254722471224', label: 'WhatsApp' },
               ].map(({ icon: Icon, href, label }) => (
                 <a
                   key={label}
@@ -72,7 +71,7 @@ export function Footer() {
             <ul className="space-y-3">
               {[
                 { label: 'About', href: '#' },
-                { label: 'Work', href: '#work' },
+                { label: 'Work', href: '#clients' },
                 { label: 'Process', href: '#process' },
                 { label: 'Testimonials', href: '#testimonials' },
                 { label: 'Contact', href: '#contact' },
@@ -108,7 +107,7 @@ export function Footer() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
               </span>
-              Available for projects
+              Remote · Kenya. Worldwide
             </motion.a>
           </div>
         </div>
